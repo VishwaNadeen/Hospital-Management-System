@@ -16,4 +16,14 @@
         <url-pattern>/InsertOrderServlet</url-pattern>
     	</servlet-mapping>
 
+		<servlet>
+		<servlet-name>DoctorsList</servlet-name>
+		<servlet-class>Doctor.DoctorsListServlet</servlet-class>
+		</servlet>
+
+		<servlet-mapping>
+		<servlet-name>DoctorsList</servlet-name>
+		<url-pattern>/DoctorsListServlet</url-pattern>
+		</servlet-mapping>
+
 </web-app>
