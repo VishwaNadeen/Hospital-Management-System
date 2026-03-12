@@ -1,0 +1,180 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #d4e5f2;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Container Styles */
+.container {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    position: relative;
+}
+
+/* Header Styles */
+h1 {
+    color: #205eaa;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #4299e1;
+}
+
+/* Form Container */
+.form-container {
+    background-color: rgb(227, 243, 226);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Form Group Styles */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2b6cb0;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Input Field Styles */
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #bee3f8;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Focus States */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #3182ce;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
+    outline: none;
+}
+
+/* Select Dropdown Styles */
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232b6cb0'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 20px;
+    padding-right: 40px;
+}
+
+/* Button Styles */
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-submit {
+    background-color: #3182ce;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    background-color: #2c5282;
+    transform: translateY(-2px);
+}
+
+/* Cancel Button Link Container */
+a.button-group {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+
+/* Cancel Button Styles */
+.btn-cancel {
+    background-color: #f84949;
+    color: #000000;
+    padding: 12px 24px;
+    border: 1px solid #cbd5e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 650;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 100%;
+    display: block;
+    font-size: 18px;
+}
+
+.btn-cancel:hover {
+    background-color: #f7fafc;
+    border-color: #a0aec0;
+    color: #404a5c;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .form-container {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+}
+
+/* Additional Styles for Better Form Layout */
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Make the cancel button full width on mobile */
+@media (max-width: 480px) {
+    .btn-submit,
+    .btn-cancel {
+        width: 100%;
+    }
+}

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+         
+         
+    <!--doctor insert-->     
+	<servlet>
+		<servlet-name>doctorInsert</servlet-name>
+		<servlet-class>DoctorPackage.DoctorInsertServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>doctorInsert</servlet-name>
+		<url-pattern>/DoctorInsertServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!--doctor update--> 
+	<servlet>
+		<servlet-name>update</servlet-name>
+		<servlet-class>DoctorPackage.DoctorUpdateServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>update</servlet-name>
+		<url-pattern>/DoctorUpdateServlet</url-pattern>
+	</servlet-mapping>
+         
+    <!--doctor display-->    
+    <servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>DoctorPackage.DoctorLogInServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/DoctorLogInServlet</url-pattern>
+	</servlet-mapping>
+	
+	 <!--doctor delete--> 
+	 <servlet>
+		<servlet-name>delete</servlet-name>
+		<servlet-class>DoctorPackage.DoctorDeleteServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>delete</servlet-name>
+		<url-pattern>/DoctorDeleteServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!--all doctor display--> 
+	<servlet>
+		<servlet-name>allDoctorsDisplay</servlet-name>
+		<servlet-class>DoctorPackage.AllDoctorsServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>allDoctorsDisplay</servlet-name>
+		<url-pattern>/AllDoctorsServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!--all doctor update--> 
+	<servlet>
+		<servlet-name>allDoctorsUpdate</servlet-name>
+		<servlet-class>DoctorPackage.AllDoctorsUpdateServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>allDoctorsUpdate</servlet-name>
+		<url-pattern>AllDoctorsUpdateServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!--all doctor delete--> 
+	<servlet>
+		<servlet-name>allDoctorsDelete</servlet-name>
+		<servlet-class>DoctorPackage.AllDoctorsDeleteServlet1</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>allDoctorsDelete</servlet-name>
+		<url-pattern>/AllDoctorsDeleteServlet1</url-pattern>
+	</servlet-mapping>
+</web-app>

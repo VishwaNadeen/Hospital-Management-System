@@ -1,0 +1,25 @@
+package Doctor;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
+
+@WebServlet("/DoctorsListServlet")
+public class DoctorsListServlet extends HttpServlet {
+    private static final long serialVersionUID = 1L;
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        List<Doctor> doctorsList = DoctorDBUtil.getAllDoctors();
+        request.setAttribute("doctorsList", doctorsList);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("DoctorsList.jsp");
+        dispatcher.forward(request, response);
+    }
+}

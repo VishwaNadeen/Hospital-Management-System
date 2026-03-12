@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+/* General Styles */
+.record-search-body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff; /* Light blue background */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.record-search-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.record-search-heading {
+    color: #0066cc; /* Dark blue */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.record-search-subheading {
+    color: #008080; /* Teal green */
+    margin-top: 0;
+    font-size: 25px;
+}
+
+/* Form Styles */
+.record-search-form-wrapper {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.record-search-form-group {
+    margin-bottom: 30px;
+}
+
+.record-search-form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #0066cc;
+    font-weight: bold;
+}
+
+#record-search-id {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #66b3ff; /* Light blue border */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#record-search-id:focus {
+    outline: none;
+    border-color: #008080; /* Teal green */
+    box-shadow: 0 0 5px rgba(0, 128, 128, 0.3);
+}
+
+/* Button Styles */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.record-search-btn-search {
+    background-color: #66b3ff; /* Light blue */
+    color: white;
+}
+
+.record-search-btn-search:hover {
+    background-color: #3399ff; /* Darker blue */
+}
+
+.record-search-btn-create {
+    background-color: #20b2aa; /* Light sea green */
+    color: white;
+}
+
+.record-search-btn-create:hover {
+    background-color: #008080; /* Teal green */
+}
+
+.record-search-btn-back {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.record-search-btn-back:hover {
+    background-color: #e0e0e0;
+}
+
+/* Error Message */
+.record-search-error-message {
+    background-color: #ffcccc;
+    color: #cc0000;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+    animation: fadeOut 3s forwards;
+    animation-delay: 3s;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+    }
+}

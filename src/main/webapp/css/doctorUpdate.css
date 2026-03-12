@@ -1,0 +1,126 @@
+@charset "UTF-8";
+/* doctor-update.css - External CSS for Doctor Update Page */
+
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f9fc;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Form Container */
+.doctor-update-form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 25px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Header */
+.form-header {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c7be5;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e1e7ec;
+}
+
+/* Input Fields */
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 20px 0;
+    display: inline-block;
+    border: 1px solid #d1e3f6;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: #2c7be5;
+    box-shadow: 0 0 0 3px rgba(44, 123, 229, 0.1);
+    outline: none;
+}
+
+/* Labels */
+.form-label {
+    font-weight: 500;
+    color: #4a6f9a;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Read-only Fields */
+.readonly-input {
+    background-color: #f0f4f8;
+    color: #6e84a3;
+}
+
+/* Buttons */
+.update-btn {
+    background-color: #00b074;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.update-btn:hover {
+    background-color: #009161;
+}
+
+/* Delete Button Style */
+.delete-btn {
+    background-color: #e63757;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 15px;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #c12a46;
+}
+
+/* Button Container */
+.button-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Responsive Layout */
+@media (min-width: 768px) {
+    .doctor-update-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 30px;
+    }
+    
+    .form-header {
+        grid-column: 1 / -1;
+    }
+    
+    .button-container {
+        grid-column: 1 / -1;
+    }
+}

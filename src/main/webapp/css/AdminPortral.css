@@ -1,0 +1,298 @@
+:root {
+    --primary-blue: #4facfe;
+    --primary-green: #68e0cf;
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    --text-dark: #2d3748;
+    --text-light: #f8fafc;
+    --text-muted: #718096;
+    --accent-blue: #0084ff;
+    --accent-green: #00b894;
+    --accent-yellow: #ffc400;
+    --accent-red: #ff4d4d;
+}
+
+.doctor-portal-body-unique {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+    color: var(--text-dark);
+    background-attachment: fixed;
+}
+
+.doctor-portal-container-unique {
+    margin-top: auto;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 16px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition: all 0.3s ease;
+    margin: 8rem auto;
+    animation: float 6s ease-in-out infinite;
+}
+
+.doctor-portal-heading-unique {
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: 700;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.doctor-portal-heading-unique::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--primary-green));
+    border-radius: 3px;
+}
+
+.doctor-portal-form-unique {
+    padding: 22px;
+    border-radius: 12px;
+    margin-bottom: 22px;
+    transition: all 0.3s ease;
+    background: var(--glass-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+}
+
+.doctor-portal-form-unique:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-portal-form-blue-unique {
+    border-left: 4px solid var(--accent-blue);
+}
+
+.doctor-portal-form-green-unique {
+    border-left: 4px solid var(--accent-green);
+}
+
+.doctor-portal-form-yellow-unique {
+    border-left: 4px solid var(--accent-yellow);
+}
+
+.doctor-portal-form-unique label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 15px;
+}
+
+#doctor-portal-nic-unique {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+#doctor-portal-nic-unique:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#doctor-portal-nic-unique::placeholder {
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+.doctor-portal-form-unique button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--text-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.doctor-portal-form-unique button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.doctor-portal-form-unique button:hover::before {
+    transform: translateX(0);
+}
+
+.doctor-portal-form-blue-unique button {
+    background: linear-gradient(135deg, var(--accent-blue), #4facfe);
+}
+
+.doctor-portal-form-green-unique button {
+    background: linear-gradient(135deg, var(--accent-green), #2ecc71);
+}
+
+.doctor-portal-form-yellow-unique button {
+    background: linear-gradient(135deg, var(--accent-yellow), #f9a825);
+    color: var(--text-dark);
+}
+
+.doctor-portal-form-unique button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+}
+
+.doctor-portal-form-unique button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.doctor-portal-home-link-unique {
+    text-align: center;
+    margin-top: 25px;
+    padding: 10px;
+    border-radius: 8px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.doctor-portal-home-link-unique:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.doctor-portal-home-link-unique a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.doctor-portal-home-link-unique a:hover {
+    color: var(--text-dark);
+    transform: translateX(-5px);
+}
+
+.doctor-portal-err-msg {
+    background: rgba(255, 73, 73, 0.15);
+    color: #e53e3e;
+    padding: 14px 18px;
+    border-radius: 8px;
+    border-left: 4px solid var(--accent-red);
+    margin-bottom: 22px;
+    font-size: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: opacity 0.5s ease;
+    opacity: 1;
+    animation: fadeInDown 0.5s ease forwards;
+}
+
+.doctor-portal-err-msg strong {
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.doctor-portal-wrapper-unique {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.doctor-portal-container-unique {
+    flex-grow: 1;
+}
+
+.doctor-portal-footer-wrapper-unique {
+    flex-shrink: 0;
+    width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .doctor-portal-body-unique {
+        padding: 15px;
+    }
+
+    .doctor-portal-container-unique {
+        padding: 20px;
+    }
+
+    .doctor-portal-form-unique {
+        padding: 18px;
+    }
+
+    .doctor-portal-heading-unique {
+        font-size: 28px;
+        
+    }
+}
+    

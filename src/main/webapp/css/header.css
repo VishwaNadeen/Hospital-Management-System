@@ -1,0 +1,125 @@
+/* Header Styles */
+
+/* Header Container */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: white;
+}
+
+/* Navbar Styles */
+.nav-custom {
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Brand Logo */
+.nav-brand {
+    font-weight: bold;
+    color: #007bff;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-brand:hover {
+    color: #0056b3;
+}
+
+/* Navigation Links */
+.nav-link {
+    color: #333;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #007bff;
+    background: rgba(0, 123, 255, 0.1);
+}
+
+/* Active Navigation Link */
+.nav-link.active {
+    color: #0056b3;
+    font-weight: 600;
+}
+
+/* Navbar Toggler */
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 123, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Login Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    max-width: 90%;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 20% auto;
+        width: 90%;
+    }
+}
+
+/* Update Order Header Specific Styles */
+.update-order-header {
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.update-order-header .nav-link {
+    color: #2c3e50;
+}
+
+.update-order-header .nav-link:hover {
+    color: #3498db;
+}
+
+/* Pharmacy Order Header Specific Styles */
+.pharmacy-order-page .nav-custom {
+    background: linear-gradient(135deg, #5eb1ff, #70d6a3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pharmacy-order-page .nav-link {
+    color: white;
+}
+
+.pharmacy-order-page .nav-link:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}

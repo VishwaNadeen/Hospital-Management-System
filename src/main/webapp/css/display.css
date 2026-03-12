@@ -1,0 +1,484 @@
+/* ================== Base Styles ================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Roboto', sans-serif;
+}
+
+:root {
+    --primary-green: #4CAF50;
+    --primary-blue: #2196F3;
+    --light-green: #E8F5E9;
+    --light-blue: #E3F2FD;
+    --text-dark: #263238;
+    --text-light: #607D8B;
+    --emergency-red: #FF5252;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --header-bg: rgba(255, 255, 255, 0.92);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, var(--light-green), var(--light-blue));
+    background-attachment: fixed;
+    color: var(--text-dark);
+    padding-top: 80px; /* for fixed navbar */
+}
+
+/* ================== HEADER SECTION ================== */
+.header {
+    background: var(--header-bg);
+    backdrop-filter: blur(10px);
+    padding: 1rem 5%;
+    box-shadow: var(--shadow);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid var(--primary-green);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-img {
+    width: 45px;
+    height: 45px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    transition: all 0.3s;
+}
+
+.nav-menu a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
+    transition: width 0.3s;
+}
+
+.nav-menu a:hover {
+    color: var(--primary-blue);
+}
+
+.nav-menu a:hover:after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-blue);
+}
+
+/* ==================  Main Content ================== */
+.main-content {
+    padding: 1rem 5%;
+}
+
+/* ========== Hero Section ========== */
+.hero-section {
+    background: linear-gradient(rgba(33, 150, 243, 0.7), rgba(76, 175, 80, 0.7)), url('../img/banner.jpg') center/cover no-repeat;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.hero-content h1 {
+    color: white;
+    font-size: 2.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== Center Wrapper ========== */
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 70px);
+    padding: 2rem;
+}
+
+/* ========== Appointment Card ========== */
+.appointment-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 25px;
+    margin-bottom: 2rem;
+    margin: 20px auto;
+    transition: all 0.3s ease;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    border-left: 5px solid var(--primary-green);
+}
+
+.appointment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ===================== Detail Section ===================== */
+.details-section {
+    padding: 1rem;
+}
+
+.detail-item {
+    margin-bottom: 1.8rem;
+    position: relative;
+    padding-left: 10px;
+}
+
+.detail-item:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary-green), var(--primary-blue));
+    border-radius: 3px;
+}
+
+.detail-label {
+    font-weight: 600;
+    font-size: 1.1rem;
+    background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.8rem;
+    display: inline-block;
+}
+
+.detail-value {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 0.3rem;
+}
+
+small.text-muted {
+    color: var(--text-light) !important;
+    font-size: 0.8rem;
+}
+
+/* ========== Action Buttons ========== */
+.action-buttons {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(0, 0, 0, 0.1);
+}
+
+.action-buttons .btn {
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-primary {
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+}
+
+.btn-outline-primary:hover {
+    background: linear-gradient(90deg, var(--primary-blue), #64B5F6);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-2px);
+}
+
+.btn-outline-danger {
+    color: var(--emergency-red);
+    border: 2px solid var(--emergency-red);
+}
+
+.btn-outline-danger:hover {
+    background: linear-gradient(90deg, var(--emergency-red), #FF8A80);
+    color: white;
+    border-color: transparent;
+    transform: translateY(-2px);
+}
+
+/* ========== Table and Layout ========== */
+.table-responsive {
+    padding: 2rem;
+    align-items: center;
+}
+
+h2.text-center {
+    background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+h2.text-center:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
+    border-radius: 3px;
+}
+
+/* ========== Alerts ========== */
+.alert {
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: none;
+    box-shadow: var(--shadow);
+}
+
+.alert-success {
+    background-color: rgba(76, 175, 80, 0.15);
+    color: #2E7D32;
+    border-left: 4px solid var(--primary-green);
+}
+
+.alert-danger {
+    background-color: rgba(244, 67, 54, 0.15);
+    color: #C62828;
+    border-left: 4px solid var(--emergency-red);
+}
+
+/* ========== No Appointments Found ========== */
+.text-center.py-5 {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
+    padding: 3rem !important;
+    box-shadow: var(--shadow);
+}
+
+.text-center.py-5 i {
+    font-size: 4rem;
+    color: var(--text-light);
+    opacity: 0.6;
+}
+
+.text-center.py-5 h4 {
+    color: var(--text-dark);
+    margin-top: 1.5rem;
+    font-weight: 500;
+}
+
+/* ========== FOOTER STYLES ========== */
+.footer {
+    background: linear-gradient(90deg, rgba(33, 150, 243, 0.95), rgba(76, 175, 80, 0.95));
+    color: white;
+    padding: 3rem 5%;
+    margin-top: 100px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.footer h5 {
+    margin-bottom: 1.2rem;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer h5:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+}
+
+.footer ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.footer ul li {
+    margin-bottom: 0.7rem;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.footer a:hover {
+    opacity: 0.8;
+    padding-left: 5px;
+}
+
+.footer .social-links i {
+    font-size: 1.4rem;
+    margin: 0 0.7rem;
+    transition: transform 0.3s;
+}
+
+.footer .social-links i:hover {
+    transform: translateY(-3px);
+}
+
+/* ================== EMERGENCY BANNER ================== */
+.emergency-banner {
+    background: linear-gradient(90deg, var(--emergency-red), #FF8A80);
+    color: white;
+    padding: 0.7rem 5%;
+    font-size: 0.9rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-white {
+    background: white;
+    color: var(--emergency-red);
+    border: none;
+    padding: 0.5rem 2rem;
+    font-size: 0.9rem;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ================== CHATBOT ICON ================== */
+.chatbot-icon {
+    position: fixed;
+    bottom: 80px;
+    right: 30px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+    color: white;
+    padding: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s;
+}
+
+.chatbot-icon:hover {
+    transform: scale(1.1);
+}
+
+/* ================== MOBILE RESPONSIVENESS ================== */
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem 3%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: var(--header-bg);
+        backdrop-filter: blur(10px);
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 1.5rem;
+        box-shadow: var(--shadow);
+        transform: translateY(-150%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+    }
+
+    .nav-menu.active {
+        transform: translateY(0);
+    }
+
+    .appointment-card {
+        padding: 1.2rem;
+        border-left-width: 4px;
+    }
+
+    .hero-section {
+        height: 180px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.75rem;
+    }
+
+    .detail-label {
+        font-size: 1rem;
+    }
+
+    .detail-value {
+        font-size: 0.95rem;
+    }
+
+    h2.text-center {
+        font-size: 1.6rem;
+    }
+
+    .emergency-banner {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1rem 5%;
+    }
+
+    .table-responsive {
+        padding: 1rem;
+    }
+}

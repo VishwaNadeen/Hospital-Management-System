@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+	<!-- Search -->
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>Pharmacist.PharmacistServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/PharmacistServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Insert -->
+	<servlet>
+		<servlet-name>phInsert</servlet-name>
+		<servlet-class>Pharmacist.PharmacistInsert</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>PhInsert</servlet-name>
+		<url-pattern>/PharmacistInsert</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Update -->
+	<servlet>
+		<servlet-name>PhUpdate</servlet-name>
+		<servlet-class>Pharmacist.UpdatePharmacistServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>PhUpdate</servlet-name>
+		<url-pattern>/UpdatePharmacistServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- Delete -->
+	<servlet>
+	<servlet-name>Delete</servlet-name>
+	<servlet-class>Pharmacist.DeletePharmacistServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	<servlet-name>Delete</servlet-name>
+	<url-pattern>/DeletePharmacistServlet</url-pattern>
+	
+	</servlet-mapping>
+	
+	<!-- Get All-->
+	<servlet>
+		<servlet-name>GetAllServlet</servlet-name>
+		<servlet-class>Pharmacist.PharmacistGetAllServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>GetAllServlet</servlet-name>
+		<url-pattern>/PharmacistGetAllServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- All update-->
+	<servlet>
+		<servlet-name>Allupdate</servlet-name>
+		<servlet-class>Pharmacist.UpdateAllServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Allupdate</servlet-name>
+		<url-pattern>/UpdateAllServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- delete update-->
+	<servlet>
+		<servlet-name>AllDelete</servlet-name>
+		<servlet-class>Pharmacist.DeleteAllServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AllDelete</servlet-name>
+		<url-pattern>/DeleteAllServlet</url-pattern>
+	</servlet-mapping>
+	
+</web-app>

@@ -1,0 +1,79 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f9ff;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Container */
+form {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 123, 167, 0.15);
+    border-left: 8px solid #28a745;
+}
+
+/* Title */
+h1 {
+    text-align: center;
+    color: #007acc;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+/* Input Labels */
+form input[type="text"],
+form input[type="date"],
+form input[type="submit"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #cce5ff;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="date"]:focus {
+    border-color: #28a745;
+    outline: none;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.3);
+}
+
+/* Submit Button */
+form input[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Readonly Field */
+input[readonly] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    form {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+}

@@ -1,0 +1,32 @@
+/* === Custom Modal Styles === */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    margin: 150px auto;
+    text-align: center;
+}
+
+.modal-buttons button {
+    margin: 10px;
+}
+  .alert-anchor {
+        position: absolute;
+        top: 80px; /* Height of your navbar */
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }

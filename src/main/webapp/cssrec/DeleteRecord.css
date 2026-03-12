@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Container Styles */
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
+}
+
+/* Header Styles */
+h1 {
+    color: #cc0000; /* Red for delete action */
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #cc0000;
+}
+
+/* Form Styles */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    color: #0066cc; /* Dark blue */
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"] {
+    padding: 12px 15px;
+    border: 1px solid #a8d8ff; /* Light blue border */
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #f5f5f5; /* Light gray for readonly */
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* Warning Message */
+.warning-message {
+    background-color: #ffe6e6;
+    color: #cc0000;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid #cc0000;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+/* Button Styles */
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.btn-delete {
+    background-color: #cc0000; /* Red for delete action */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex: 1;
+}
+
+.btn-delete:hover {
+    background-color: #990000;
+    transform: translateY(-2px);
+}
+
+.btn-cancel {
+    background-color: #f5f5f5;
+    color: #666;
+    padding: 12px 24px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-cancel:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+}

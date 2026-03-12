@@ -1,0 +1,55 @@
+@charset "UTF-8";body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #d0f0e0, #b8d0f0);
+}
+
+.services-container-hms {
+  padding: 40px 5%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 20px;
+  margin: 60px auto;
+  max-width: 1300px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.services-title-hms {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 36px;
+  color: #007b6e;
+  margin-bottom: 20px;
+}
+
+.service-card-hms {
+  background-color: rgba(0, 100, 150, 0.07);
+  border-radius: 18px;
+  padding: 25px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card-hms:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 128, 128, 0.2);
+}
+
+.service-icon-hms {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.service-name-hms {
+  font-size: 24px;
+  color: #004d4d;
+  margin: 10px 0;
+}
+
+.service-desc-hms {
+  font-size: 16px;
+  color: #333;
+}

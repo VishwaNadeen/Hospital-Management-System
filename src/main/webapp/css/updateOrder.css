@@ -1,0 +1,188 @@
+@charset "UTF-8";
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e8f5e9 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.uo-main-content {
+    padding: 70px 20px 20px;
+}
+
+.uo-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.uo-form-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.uo-form-title {
+    color: #2196F3;
+    text-align: center;
+    margin: 0 0 30px 0;
+    font-size: 2.2em;
+    font-weight: 600;
+}
+
+.uo-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.uo-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.uo-form-group label {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.uo-form-group input[type="text"],
+.uo-form-group input[type="number"],
+.uo-form-group input[type="tel"],
+.uo-form-group input[type="email"],
+.uo-form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.uo-form-group input:focus,
+.uo-form-group textarea:focus {
+    border-color: #2196F3;
+    box-shadow: 0 0 10px rgba(33, 150, 243, 0.2);
+    outline: none;
+}
+
+.uo-form-group textarea {
+    padding: 15px;
+    min-height: 120px;
+    resize: vertical;
+}
+
+.uo-file-upload {
+    position: relative;
+    width: 30%;
+    cursor: pointer;
+    background: linear-gradient(135deg, #64B5F6, #1E88E5);
+    border: 2px solid #1E88E5;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.2;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.uo-file-upload:hover {
+    background: linear-gradient(135deg, #1E88E5, #1565C0);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(30, 136, 229, 0.3);
+    border-color: #1565C0;
+}
+
+.uo-file-upload input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.uo-form-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 30px;
+}
+
+.uo-submit-btn,
+.uo-cancel-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+}
+
+.uo-submit-btn {
+    background: linear-gradient(135deg, #41ad45, #61f668);
+    color: white;
+}
+
+.uo-submit-btn:hover {
+    background: linear-gradient(135deg, #388E3C, #2E7D32);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.uo-cancel-btn {
+    background: #a09c9c;
+    color: #000000;
+}
+
+.uo-cancel-btn:hover {
+    background: #ff0101ba;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .uo-container {
+        padding: 20px;
+    }
+
+    .uo-form-container {
+        padding: 25px;
+    }
+
+    .uo-form-title {
+        font-size: 1.8em;
+    }
+
+    .uo-form-actions {
+        flex-direction: column;
+    }
+
+    .uo-submit-btn,
+    .uo-cancel-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+   

@@ -1,0 +1,333 @@
+/* Pharmacist Search - Light Green & Blue Theme */
+:root {
+    --primary-green: #4CAF50;
+    --primary-blue: #3498db;
+    --light-green: rgba(76, 175, 80, 0.1);
+    --light-blue: rgba(52, 152, 219, 0.1);
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --text-dark: #2c3e50;
+    --text-light: #7f8c8d;
+    --shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    --border: 1px solid rgba(255, 255, 255, 0.18);
+    --gradient: linear-gradient(135deg, var(--light-blue), var(--light-green));
+    --input-border: rgba(52, 152, 219, 0.2);
+    --input-focus: rgba(76, 175, 80, 0.4);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--gradient);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+    color: var(--text-dark);
+}
+
+/* Main Container */
+.pharmacist-container {
+    max-width: 800px;
+    margin: 80px auto 40px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Glass Card Effect */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 20px;
+    border: var(--border);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    box-shadow: 0 10px 40px rgba(31, 38, 135, 0.15);
+    transform: translateY(-3px);
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
+}
+
+/* Card Header */
+.card-header {
+    text-align: center;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.card-header h2 {
+    color: var(--primary-green);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.card-header p {
+    color: var(--text-light);
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.card-header h2 i {
+    margin-right: 10px;
+    color: var(--primary-blue);
+}
+
+/* Search Form */
+.search-form {
+    width: 100%;
+}
+
+.search-group {
+    margin-bottom: 20px;
+}
+
+.search-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.search-group label i {
+    color: var(--primary-blue);
+    margin-right: 6px;
+    width: 18px;
+    text-align: center;
+}
+
+.search-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 14px 50px 14px 15px;
+    border: 1px solid var(--input-border);
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+    background-color: white;
+}
+
+.search-btn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+    width: 40px;
+    border: none;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.search-help {
+    margin-top: 8px;
+}
+
+.search-help p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin: 0;
+    font-style: italic;
+}
+
+/* Search Options */
+.search-options {
+    background-color: rgba(52, 152, 219, 0.05);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.search-options h4 {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin: 0 0 10px;
+    font-weight: 500;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.option-item input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--primary-green);
+}
+
+.option-item label {
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-submit, 
+.btn-return {
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+    color: white;
+    border: none;
+    flex: 2;
+}
+
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+}
+
+.btn-return {
+    background: transparent;
+    color: var(--text-dark);
+    border: 1px solid #ddd;
+    flex: 1;
+}
+
+.btn-return:hover {
+    background-color: #f5f5f5;
+    transform: translateY(-3px);
+}
+
+.btn-submit i, 
+.btn-return i {
+    margin-right: 8px;
+}
+
+/* Search Tips Section */
+.search-tips {
+    padding: 20px 25px;
+}
+
+.search-tips h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-tips ul {
+    margin: 0;
+    padding-left: 25px;
+}
+
+.search-tips li {
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.glass-card {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.search-tips {
+    animation: fadeIn 0.5s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pharmacist-container {
+        margin: 60px auto 30px;
+        padding: 0 15px;
+    }
+    
+    .glass-card {
+        padding: 25px 20px;
+    }
+    
+    .options-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .card-header h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+}
