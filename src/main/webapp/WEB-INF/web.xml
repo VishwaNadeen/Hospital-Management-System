@@ -5,25 +5,9 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-         
-         <servlet>
-        <servlet-name>InsertOrder</servlet-name>
-        <servlet-class>Order.InsertOrderServlet</servlet-class>
-    	</servlet>
 
-    	<servlet-mapping>
-        <servlet-name>InsertOrder</servlet-name>
-        <url-pattern>/InsertOrderServlet</url-pattern>
-    	</servlet-mapping>
-
-		<servlet>
-		<servlet-name>DoctorsList</servlet-name>
-		<servlet-class>Doctor.DoctorsListServlet</servlet-class>
-		</servlet>
-
-		<servlet-mapping>
-		<servlet-name>DoctorsList</servlet-name>
-		<url-pattern>/DoctorsListServlet</url-pattern>
-		</servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>Home.jsp</welcome-file>
+    </welcome-file-list>
 
 </web-app>
