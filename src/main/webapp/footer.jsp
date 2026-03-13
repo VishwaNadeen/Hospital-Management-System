@@ -1,5 +1,5 @@
 <!-- ========== FOOTER SECTION ========== -->
-<footer class="footer mt-5 py-5 bg-dark text-light">
+<footer class="footer bg-dark text-light">
     <div class="container">
         <div class="row">
             <div class="col-md-4">

@@ -11,22 +11,32 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="home-no-gap">
 
 <jsp:include page="header.jsp" />
 
+<style>
+    body.home-no-gap {
+        padding-top: var(--hms-navbar-height) !important;
+    }
+
+    body.home-no-gap .hero {
+        margin-top: 0 !important;
+    }
+</style>
+
 <!-- ✅ Success Message Display -->
-<div class="alert-anchor">
-    <div class="container">
-        <c:if test="${not empty success}">
+<c:if test="${not empty success}">
+    <div class="alert-anchor">
+        <div class="container">
             <div class="alert alert-success alert-dismissible fade show mb-0">
                 ${success}
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
             <% session.removeAttribute("success"); %>
-        </c:if>
+        </div>
     </div>
-</div>
+</c:if>
 
 <main>
     <section class="hero">
@@ -61,8 +71,10 @@
     </section>
 
     <div class="emergency-banner" id="emergency">
-        <span>🚨 24/7 Emergency: Call 1-800-MEDI-CARE</span>
-        <button class="btn btn-white">Emergency Location</button>
+        <div class="emergency-banner-content">
+            <span>🚨 24/7 Emergency: Call 1-800-MEDI-CARE</span>
+            <button class="btn btn-white">Emergency Location</button>
+        </div>
     </div>
 
     <div class="chatbot-icon">
