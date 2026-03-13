@@ -14,16 +14,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="container-fluid">
-			<a class="navbar-brand" href="#"><span class="text-primary">Medi</span>Home</a>
-			<div class="d-flex gap-4 align-items-center">
-				<a class="text-decoration-none text-dark fw-medium"
-					onclick="showPatientForm()">APPOINTMENT</a>
-					 <a href="IdInput.jsp" class="text-decoration-none text-dark fw-medium">VIEW APPOINTMENT</a>
-					 <a class="text-decoration-none text-primary small">user</a>
-			</div>
-		</div>
+    <jsp:include page="header.jsp" />
  <h2 style="color: green;"> Done!</h2>
     
 </body>
 </html>
+

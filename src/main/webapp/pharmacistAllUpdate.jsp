@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="css/PharmacistAllUpdate.css">
 </head>
 <body>
+    <jsp:include page="header.jsp" />
     
         <h1>Update Inventry</h1>
         
@@ -40,3 +41,4 @@
 
 </body>
 </html>
+

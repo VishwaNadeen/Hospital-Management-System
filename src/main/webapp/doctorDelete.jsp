@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="css/doctorDelete.css">
 </head>
 <body>
+    <jsp:include page="header.jsp" />
 
 	<%
 		String first_name = request.getParameter("first_name");
@@ -56,3 +57,4 @@
 	
 </body>
 </html>
+

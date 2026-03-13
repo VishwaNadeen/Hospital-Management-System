@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/AllDoctorsDisplay.css">
 </head>
 <body>
+    <jsp:include page="header.jsp" />
 
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Search doctors...">
@@ -75,7 +76,7 @@
     </table>
     
     <div class="home-link">
-        <a href="AdminPortral.jsp">← Back to Potral</a>
+        <a href="AdminPortral.jsp"><- Back to Potral</a>
     </div>
     
     <script>
@@ -115,3 +116,4 @@
     
 </body>
 </html>
+

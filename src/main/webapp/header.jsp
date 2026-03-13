@@ -3,15 +3,22 @@
 <%@ page session="true" %>
 
 <%
-    // Determine if the current page is updateOrder.jsp or orderInsert.jsp
+    // Determine page-specific header class and active nav item.
     String headerClass = "";
-    String currentPage = request.getRequestURI();
+    String currentUri = request.getRequestURI();
+    String currentPage = currentUri.substring(currentUri.lastIndexOf('/') + 1);
     
-    if (currentPage.endsWith("updateOrder.jsp")) {
+    if (currentPage.equals("updateOrder.jsp")) {
         headerClass = "update-order-header";
-    } else if (currentPage.endsWith("orderInsert.jsp")) {
+    } else if (currentPage.equals("orderInsert.jsp")) {
         headerClass = "order-insert-header";
     }
+
+    boolean isHome = currentPage.equals("Home.jsp") || currentPage.isEmpty();
+    boolean isServices = currentPage.equals("services.jsp");
+    boolean isDoctors = currentPage.equals("DoctorsList.jsp") || currentUri.contains("DoctorsListServlet");
+    boolean isAppointment = currentPage.equals("Appointment.jsp");
+    boolean isViewAppointment = currentPage.equals("SearchId.jsp") || currentPage.equals("IdInput.jsp") || currentUri.contains("GetAllServlet");
 %>
 
 <!-- Bootstrap & FontAwesome -->
@@ -19,26 +26,68 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<style>
+    :root {
+        --hms-navbar-height: 84px;
+    }
+
+    body {
+        padding-top: var(--hms-navbar-height);
+    }
+
+    .header {
+        padding: 0;
+    }
+
+    .nav-custom {
+        min-height: var(--hms-navbar-height);
+    }
+
+    .navbar-nav .nav-link.active {
+        color: var(--primary-blue);
+        font-weight: 700;
+    }
+
+    .navbar-nav .nav-link.active::after {
+        width: 100%;
+    }
+
+    @media (max-width: 991.98px) {
+        :root {
+            --hms-navbar-height: 72px;
+        }
+
+        .navbar-nav {
+            padding: 0.75rem 0;
+            row-gap: 0.2rem;
+        }
+
+        .navbar-nav .nav-link {
+            margin: 0;
+            padding: 0.65rem 0;
+        }
+    }
+</style>
 
 <!-- ========== HEADER SECTION ========== -->
 <header class="header">
     <nav class="navbar navbar-expand-lg navbar-light nav-custom fixed-top <%= headerClass %>">
-        <div class="container">
+        <div class="container-fluid container-xl px-3 px-lg-4">
             <a class="navbar-brand nav-brand" href="Home.jsp">
                 <i class="bi bi-heart-pulse me-2"></i>MediCare
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav ms-auto">
-                    <a class="nav-link" href="Home.jsp">Home</a>
-                    <a class="nav-link" href="services.jsp">Services</a>
-                    <a class="nav-link" href="DoctorsListServlet">Doctors</a>
-                    <a class="nav-link" href="Appointment.jsp">
+                    <a class="nav-link <%= isHome ? "active" : "" %>" href="Home.jsp">Home</a>
+                    <a class="nav-link <%= isServices ? "active" : "" %>" href="services.jsp">Services</a>
+                    <a class="nav-link <%= isDoctors ? "active" : "" %>" href="DoctorsListServlet">Doctors</a>
+                    <a class="nav-link <%= isAppointment ? "active" : "" %>" href="Appointment.jsp">
                         <i class="bi bi-calendar-plus me-1"></i>Appointment
                     </a>
-                    <a class="nav-link" href="SearchId.jsp">
+                    <a class="nav-link <%= isViewAppointment ? "active" : "" %>" href="SearchId.jsp">
                         <i class="bi bi-search me-1"></i>View Appointment
                     </a>
                     <a class="nav-link" href="#" onclick="document.getElementById('loginModal').style.display='block'">
@@ -70,6 +119,7 @@
 </div>
 
 <!-- Modal outside click close script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     window.onclick = function(event) {
         var modal = document.getElementById('loginModal');

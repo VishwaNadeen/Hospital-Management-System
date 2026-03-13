@@ -4,5 +4,23 @@
   ],
   "java.project.referencedLibraries": [
     "src/main/webapp/WEB-INF/lib/**/*.jar"
-  ]
+  ],
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 800,
+  "emeraldwalk.runonsave": {
+    "commands": [
+      {
+        "match": "src/main/webapp/.*\\.(jsp|css|js|png|jpg|jpeg|gif|svg)$",
+        "cmd": "workbench.action.tasks.runTask hms: sync webapp to tomcat"
+      },
+      {
+        "match": "src/main/java/.*\\.java$",
+        "cmd": "workbench.action.tasks.runTask hms: compile java"
+      },
+      {
+        "match": "src/main/java/.*\\.java$",
+        "cmd": "workbench.action.tasks.runTask hms: sync classes to tomcat"
+      }
+    ]
+  }
 }

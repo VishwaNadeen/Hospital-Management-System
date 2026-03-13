@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="cssrec/RecordDisplay.css">
 </head>
 <body>
+    <jsp:include page="header.jsp" />
     <div class="container">
         <h1>Patient Medical Record</h1>
         
@@ -80,3 +81,4 @@
     </div>
 </body>
 </html>
+

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="cssrec/Searchrecord.css">
 </head>
 <body class="record-search-body">
+    <jsp:include page="header.jsp" />
 
     <div class="record-search-container">
         <h1 class="record-search-heading">Medical Records Management</h1>
@@ -41,3 +42,5 @@
 
 </body>
 </html>
+
+

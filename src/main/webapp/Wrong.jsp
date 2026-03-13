@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+    <jsp:include page="header.jsp" />
 <h2 style="color: red;">
         <% if(session.getAttribute("error") != null) { %>
             Error: <%= session.getAttribute("error") %>
@@ -17,3 +18,4 @@
     <a href="Login.jsp">Back to Form</a>
 </body>
 </html>
+

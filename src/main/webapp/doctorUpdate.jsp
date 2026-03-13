@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="css/doctorUpdate.css">
 </head>
 <body>
+    <jsp:include page="header.jsp" />
 
 	<%
 		String first_name = request.getParameter("first_name");
@@ -164,3 +165,4 @@
     </script>
 </body>
 </html>
+

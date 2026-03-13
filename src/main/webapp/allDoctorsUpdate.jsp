@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="css/doctorUpdate.css">
 </head>
 <body>
+    <jsp:include page="header.jsp" />
     <div class="doctor-update-form">
         <h1 class="form-header">Update Doctor Details</h1>
         
@@ -240,3 +241,4 @@
     </script>
 </body>
 </html>
+

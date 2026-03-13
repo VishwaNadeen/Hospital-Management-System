@@ -1,0 +1,98 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "hms: sync webapp to tomcat",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "$src='${workspaceFolder}\\src\\main\\webapp'; $dst='C:\\apache-tomcat-10.1.52\\webapps\\Hospital-Management-System'; if (-not (Test-Path $dst)) { Write-Error \"Tomcat app folder not found: $dst\"; exit 1 }; robocopy $src $dst /E /NFL /NDL /NJH /NJS /NP | Out-Null; if ($LASTEXITCODE -le 7) { exit 0 } else { exit $LASTEXITCODE }"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "hms: compile java",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "if (-not (Get-Command javac -ErrorAction SilentlyContinue)) { Write-Error 'javac not found in PATH. Install JDK and set PATH/JAVA_HOME.'; exit 1 }; New-Item -ItemType Directory -Force '${workspaceFolder}\\build\\classes' | Out-Null; $libs = Get-ChildItem -Path '${workspaceFolder}\\src\\main\\webapp\\WEB-INF\\lib\\*.jar' -ErrorAction SilentlyContinue | ForEach-Object { $_.FullName }; $cp = @('${workspaceFolder}\\build\\classes') + $libs; $cpJoined = [string]::Join(';', $cp); $sources = Get-ChildItem -Path '${workspaceFolder}\\src\\main\\java' -Filter '*.java' -Recurse | ForEach-Object { $_.FullName }; if ($sources.Count -eq 0) { Write-Output 'No Java files found.'; exit 0 }; & javac -encoding UTF-8 -cp $cpJoined -d '${workspaceFolder}\\build\\classes' $sources; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "hms: sync classes to tomcat",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "$src='${workspaceFolder}\\build\\classes'; $dst='C:\\apache-tomcat-10.1.52\\webapps\\Hospital-Management-System\\WEB-INF\\classes'; if (-not (Test-Path $src)) { Write-Error \"Build output missing: $src\"; exit 1 }; New-Item -ItemType Directory -Force $dst | Out-Null; robocopy $src $dst /E /NFL /NDL /NJH /NJS /NP | Out-Null; if ($LASTEXITCODE -le 7) { exit 0 } else { exit $LASTEXITCODE }"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "hms: tomcat stop",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "$tomcat='C:\\apache-tomcat-10.1.52'; if (-not (Test-Path $tomcat)) { Write-Error \"Tomcat folder not found: $tomcat\"; exit 1 }; $javaHomeLine = & java -XshowSettings:properties -version 2>&1 | Select-String 'java.home = ' | Select-Object -First 1; if ($null -eq $javaHomeLine) { Write-Error 'Cannot determine java.home. Ensure JDK is installed and java is in PATH.'; exit 1 }; $javaHome = ($javaHomeLine.ToString().Split('=')[1]).Trim(); $env:JAVA_HOME = $javaHome; $env:JRE_HOME = $javaHome; Set-Location \"$tomcat\\bin\"; cmd /c shutdown.bat"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "hms: tomcat start",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "$tomcat='C:\\apache-tomcat-10.1.52'; if (-not (Test-Path $tomcat)) { Write-Error \"Tomcat folder not found: $tomcat\"; exit 1 }; $javaHomeLine = & java -XshowSettings:properties -version 2>&1 | Select-String 'java.home = ' | Select-Object -First 1; if ($null -eq $javaHomeLine) { Write-Error 'Cannot determine java.home. Ensure JDK is installed and java is in PATH.'; exit 1 }; $javaHome = ($javaHomeLine.ToString().Split('=')[1]).Trim(); $env:JAVA_HOME = $javaHome; $env:JRE_HOME = $javaHome; Set-Location \"$tomcat\\bin\"; cmd /c startup.bat"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "hms: tomcat restart",
+      "dependsOn": [
+        "hms: tomcat stop",
+        "hms: tomcat start"
+      ],
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    },
+    {
+      "label": "hms: publish all",
+      "dependsOn": [
+        "hms: sync webapp to tomcat",
+        "hms: compile java",
+        "hms: sync classes to tomcat"
+      ],
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    },
+    {
+      "label": "hms: publish and restart",
+      "dependsOn": [
+        "hms: publish all",
+        "hms: tomcat restart"
+      ],
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    }
+  ]
+}
