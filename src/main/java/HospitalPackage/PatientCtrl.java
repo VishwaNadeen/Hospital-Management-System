@@ -16,7 +16,7 @@ public class PatientCtrl {
 		//create database connection
 		String url = "jdbc:mysql://localhost:3306/hospital?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
 	   String user = "root";
-	   String pass = "81576463";
+	   String pass = "root";
 	   
 	   //validate
 	   

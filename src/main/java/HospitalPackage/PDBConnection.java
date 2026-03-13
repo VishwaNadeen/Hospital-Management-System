@@ -9,7 +9,7 @@ public class PDBConnection {
     // Updated connection parameters
     private static final String url = "jdbc:mysql://localhost:3306/hospital?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
     private static final String user = "root";
-    private static final String pass = "Nadeen1795";
+    private static final String pass = "root";
 
     public static Connection getConnection() throws SQLException {
         try {

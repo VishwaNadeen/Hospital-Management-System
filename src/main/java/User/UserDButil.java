@@ -13,7 +13,7 @@ public class UserDButil {
         // JDBC Connection
         String url = "jdbc:mysql://localhost:3306/hospital";
         String dbUser = "root";
-        String dbPassword = "Nadeen1795"; // Update if needed
+        String dbPassword = "root"; // Update if needed
 
         Class.forName("com.mysql.jdbc.Driver");
         
