@@ -1,21 +1,37 @@
 package Doctor;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import ConnectionUtill.ConnectionUtill;
 
 public class DoctorDBUtil {
+    private static final String URL = "jdbc:mysql://localhost:3306/hospital?useSSL=false&serverTimezone=UTC";
+    private static final String USER = "root";
+    private static final String PASSWORD = "root";
+
+    static {
+        try {
+            // Support both MySQL Connector/J 8+ and legacy 5.x driver names.
+            try {
+                Class.forName("com.mysql.cj.jdbc.Driver");
+            } catch (ClassNotFoundException ex) {
+                Class.forName("com.mysql.jdbc.Driver");
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static List<Doctor> getAllDoctors() {
         List<Doctor> doctorsList = new ArrayList<>();
 
-        try {
-            Connection con = ConnectionUtill.getDBConnection();
-            String query = "SELECT * FROM doctor";
-            PreparedStatement ps = con.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
+        String query = "SELECT * FROM doctor";
+        try (Connection con = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement ps = con.prepareStatement(query);
+             ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 Doctor doctor = new Doctor();
@@ -32,10 +48,6 @@ public class DoctorDBUtil {
 
                 doctorsList.add(doctor);
             }
-
-            rs.close();
-            ps.close();
-            con.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

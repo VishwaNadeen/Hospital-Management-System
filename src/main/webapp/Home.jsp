@@ -102,14 +102,6 @@
         alert('Welcome! How can I assist you today?');
     });
 
-    // Close modal on outside click
-    window.onclick = function(event) {
-        const modal = document.getElementById('loginModal');
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    }
-
     // Auto-dismiss success alert
     <c:if test="${not empty success}">
         window.addEventListener('DOMContentLoaded', () => {

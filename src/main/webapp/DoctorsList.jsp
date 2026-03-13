@@ -1,5 +1,4 @@
 <%@ page import="Doctor.Doctor" %>
-<%@ page import="Doctor.DoctorDBUtil" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.time.LocalDate"%>
 <%@ page import="java.time.Period"%>
@@ -12,9 +11,10 @@
 
     List<Doctor> doctorsList = (List<Doctor>) request.getAttribute("doctorsList");
 
-    // ✅ fallback: if null (page directly refreshed), get from DB manually
+    // Always render via servlet so data loading stays in one place.
     if (doctorsList == null) {
-        doctorsList = DoctorDBUtil.getAllDoctors();
+        response.sendRedirect("DoctorsListServlet");
+        return;
     }
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -23,8 +23,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctors List</title>
-    <link rel="stylesheet" href="css/DoctorsList.css">
+    <link rel="stylesheet" href="css/DoctorsList.css?v=<%= System.currentTimeMillis() %>">
 </head>
 <body class="doctors-page">
 
@@ -34,6 +35,7 @@
     <main class="doctors-main">
         <div class="container mt-5">
             <h2 class="page-title">Doctors Directory</h2>
+            <p class="page-subtitle">Meet our specialists and view their latest availability in one place.</p>
             <div class="doctors-grid">
                 <%
                     if (doctorsList != null && !doctorsList.isEmpty()) {
@@ -44,19 +46,25 @@
                 %>
                 <div class="doctor-card">
                     <div class="doctor-info">
-                        <h3><%= doctor.getFirstName() %> <%= doctor.getLastName() %></h3>
-                        <p>Age: <%= age %></p>
-                        <p>Gender: <%= doctor.getGender() %></p>
-                        <p>Specialization: <%= doctor.getSpecialization() %></p>
-                        <p>Qualification: <%= doctor.getQualification() %></p>
-                        <p>Experience: <%= doctor.getExperienceYears() %> years</p>
-                        <p>Availability: <%= doctor.getAvailability() %></p>
-                        <p>Status: <%= doctor.getStatus() %></p>
+                        <div class="doctor-head">
+                            <h3 class="doctor-name">Dr. <%= doctor.getFirstName() %> <%= doctor.getLastName() %></h3>
+                            <span class="doctor-status <%= "active".equalsIgnoreCase(doctor.getStatus()) ? "status-active" : "status-inactive" %>"><%= doctor.getStatus() %></span>
+                        </div>
+                        <div class="doctor-tags">
+                            <span class="doctor-tag"><%= doctor.getSpecialization() %></span>
+                            <span class="doctor-tag"><%= doctor.getAvailability() %></span>
+                        </div>
+                        <p><span class="label">Specialization:</span><span class="value"><%= doctor.getSpecialization() %></span></p>
+                        <p><span class="label">Qualification:</span><span class="value"><%= doctor.getQualification() %></span></p>
+                        <p><span class="label">Experience:</span><span class="value"><%= doctor.getExperienceYears() %> years</span></p>
+                        <p><span class="label">Availability:</span><span class="value"><%= doctor.getAvailability() %></span></p>
+                        <p><span class="label">Age:</span><span class="value"><%= age %></span></p>
+                        <p><span class="label">Gender:</span><span class="value"><%= doctor.getGender() %></span></p>
                     </div>
                 </div>
                 <%
                             } catch (Exception e) {
-                                out.println("<p>Error parsing DOB for doctor: " + doctor.getFirstName() + "</p>");
+                                out.println("<div class='doctor-card error-card'><p>Error parsing DOB for doctor: " + doctor.getFirstName() + "</p></div>");
                             }
                         }
                     } else {

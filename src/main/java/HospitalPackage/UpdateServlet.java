@@ -84,7 +84,7 @@ public class UpdateServlet extends HttpServlet {
               
             } else {
                 session.setAttribute("error", "Failed to update appointment");
-                response.sendRedirect("SearchId.jsp");
+                response.sendRedirect("Appointment.jsp#lookup");
             }
             // Single redirect point
             return;

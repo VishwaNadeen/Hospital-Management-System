@@ -52,17 +52,18 @@ public class SearchServlet extends HttpServlet {
             throws ServletException, IOException {
         
         String id = request.getParameter("id"); // Get the ID from form input
+        request.setAttribute("searched", true);
         
         // Fetch patient data using the ID
         List<PatientModel> patients = PatientCtrl.getById(id);
         
         if (patients != null && !patients.isEmpty()) {
             request.setAttribute("allPatients", patients);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Display.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("Appointment.jsp");
             dispatcher.forward(request, response);
         } else {
             request.setAttribute("error", "No appointment found with ID: " + id);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("SearchId.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("Appointment.jsp");
             dispatcher.forward(request, response);
         }
     }
