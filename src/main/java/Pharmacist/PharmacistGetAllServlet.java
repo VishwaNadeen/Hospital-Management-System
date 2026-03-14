@@ -23,7 +23,7 @@ public class PharmacistGetAllServlet extends HttpServlet {
 		List <Pharmacist> allPharmacist = PharmacistDBUtill.getALLPharmacist();
 		request.setAttribute("allPharmacist", allPharmacist);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("AllDrugDetails.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("pages/pharmacy/AllDrugDetails.jsp");
 		dispatcher.forward(request, response);
 	}
 

@@ -42,7 +42,7 @@ public class DoctorUpdateServlet extends HttpServlet {
 			List<Doctor> docDetails = DoctorDBUtil.getDoctorDetails(id_no);
 			request.setAttribute("docDetails", docDetails);
 			
-			jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("doctorDetails.jsp");
+			jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("pages/doctor/doctorDetails.jsp");
 			dis.forward(request, response);
 		}
 		else {
@@ -50,7 +50,7 @@ public class DoctorUpdateServlet extends HttpServlet {
 			List<Doctor> docDetails = DoctorDBUtil.getDoctorDetails(id_no);
 			request.setAttribute("docDetails", docDetails);
 			
-			jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("doctorDetails.jsp");
+			jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("pages/doctor/doctorDetails.jsp");
 			dis.forward(request, response);
 		}
 		

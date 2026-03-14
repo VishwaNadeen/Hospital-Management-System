@@ -19,7 +19,7 @@ public class DoctorsListServlet extends HttpServlet {
         List<Doctor> doctorsList = DoctorDBUtil.getAllDoctors();
         request.setAttribute("doctorsList", doctorsList);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("DoctorsList.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("pages/doctor/DoctorsList.jsp");
         dispatcher.forward(request, response);
     }
 }

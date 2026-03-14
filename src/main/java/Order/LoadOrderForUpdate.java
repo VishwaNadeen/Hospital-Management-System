@@ -17,6 +17,6 @@ public class LoadOrderForUpdate extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Order order = OrderDBUtil.getOrderById(id);
         request.setAttribute("order", order);
-        request.getRequestDispatcher("updateOrder.jsp").forward(request, response);
+        request.getRequestDispatcher("pages/pharmacy/updateOrder.jsp").forward(request, response);
     }
 }

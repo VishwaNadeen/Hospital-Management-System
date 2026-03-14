@@ -30,7 +30,7 @@ public class AllDoctorsDeleteServlet extends HttpServlet {
 			List<Doctor> docdetails = DoctorDBUtil.getByID(id_no);
 			request.setAttribute("docCetails", docdetails);
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("unsuccess.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("pages/status/unsuccess.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

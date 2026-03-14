@@ -18,14 +18,14 @@ public class DeleteServlet extends HttpServlet {
             boolean isDeleted = PatientCtrl.deletedata(id);
             if (isDeleted) {
             	 session.setAttribute("success", "Appoinment Canceled!");
-            		response.sendRedirect("Home.jsp#alert-anchor"); ;
+            		response.sendRedirect("pages/home/Home.jsp#alert-anchor"); ;
             } else {
             	 session.setAttribute("error", "Delete Failed!");
                 response.sendRedirect("GetAllServlet");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("Wrong.jsp?msg=Error: " + e.getMessage());
+            response.sendRedirect("pages/status/Wrong.jsp?msg=Error: " + e.getMessage());
         }
     }
 }

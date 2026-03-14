@@ -23,7 +23,7 @@ public class AllDoctorsServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("AllDoctorsDisplay.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("pages/doctor/AllDoctorsDisplay.jsp");
 		dispatcher.forward(request, response);
 }
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

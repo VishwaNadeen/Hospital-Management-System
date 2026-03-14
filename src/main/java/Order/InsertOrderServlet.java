@@ -46,9 +46,9 @@ public class InsertOrderServlet extends HttpServlet {
 
         // Redirect based on result
         if (isInserted) {
-            response.sendRedirect("orderInsert.jsp");
+            response.sendRedirect("pages/pharmacy/orderInsert.jsp");
         } else {
-            response.sendRedirect("unsuccess.jsp");
+            response.sendRedirect("pages/status/unsuccess.jsp");
         }
     }
 }

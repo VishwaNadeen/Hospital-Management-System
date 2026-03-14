@@ -77,14 +77,14 @@ public class UpdateServlet extends HttpServlet {
                 session.setAttribute("success", "Appointment updated successfully!");
                 List<PatientModel> allPatients = PatientCtrl.getById(id);
                 request.setAttribute("allPatients", allPatients);
-                // Forward to Display.jsp to show ONLY the updated record
-                RequestDispatcher dispatcher = request.getRequestDispatcher("Display.jsp");
+                // Forward to patient/Display.jsp to show ONLY the updated record
+                RequestDispatcher dispatcher = request.getRequestDispatcher("pages/patient/Display.jsp");
                 dispatcher.forward(request, response);
        
               
             } else {
                 session.setAttribute("error", "Failed to update appointment");
-                response.sendRedirect("Appointment.jsp#lookup");
+                response.sendRedirect("pages/patient/Appointment.jsp#lookup");
             }
             // Single redirect point
             return;

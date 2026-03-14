@@ -20,11 +20,11 @@ import java.util.List;
 
         if (Details.isEmpty()) {
             request.setAttribute("error", "No appointment found for NIC: " + id);
-            RequestDispatcher rd = request.getRequestDispatcher("SearchId.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("pages/patient/SearchId.jsp");
             rd.forward(request, response);
         } else {
             request.setAttribute("patientDetails", Details);
-            RequestDispatcher rd = request.getRequestDispatcher("Display.jsp");
+            RequestDispatcher rd = request.getRequestDispatcher("pages/patient/Display.jsp");
             rd.forward(request, response);
         }
     }
@@ -59,11 +59,11 @@ public class SearchServlet extends HttpServlet {
         
         if (patients != null && !patients.isEmpty()) {
             request.setAttribute("allPatients", patients);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Appointment.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("pages/patient/Appointment.jsp");
             dispatcher.forward(request, response);
         } else {
             request.setAttribute("error", "No appointment found with ID: " + id);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("Appointment.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("pages/patient/Appointment.jsp");
             dispatcher.forward(request, response);
         }
     }

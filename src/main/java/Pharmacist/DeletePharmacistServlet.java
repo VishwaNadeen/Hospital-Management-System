@@ -24,14 +24,14 @@ public class DeletePharmacistServlet extends HttpServlet {
 		isTrue = PharmacistDBUtill.deletePharmacist(id);
 		 
 		if(isTrue == true ) {
-			jakarta.servlet.RequestDispatcher dispatcher = (jakarta.servlet.RequestDispatcher) request.getRequestDispatcher("PharmacistHome.jsp");
+			jakarta.servlet.RequestDispatcher dispatcher = (jakarta.servlet.RequestDispatcher) request.getRequestDispatcher("pages/pharmacy/PharmacistHome.jsp");
 			dispatcher.forward(request, response);
 		}
 		else {
 			List <Pharmacist>phaDetails = PharmacistDBUtill.getPharmacistDetails(id);
 			request.setAttribute("phaDetails", phaDetails);
 			
-			jakarta.servlet.RequestDispatcher dispatcher = (jakarta.servlet.RequestDispatcher) request.getRequestDispatcher("unsuccess.jsp");
+			jakarta.servlet.RequestDispatcher dispatcher = (jakarta.servlet.RequestDispatcher) request.getRequestDispatcher("pages/status/unsuccess.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

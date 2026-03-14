@@ -67,22 +67,22 @@ public class InsertServlet extends HttpServlet {
 
             if (success) {
             	session.setAttribute("success", "Appointment booked successfully!");
-            	response.sendRedirect("Home.jsp");  //  //stop scroll
+            	response.sendRedirect("pages/home/Home.jsp");  //  //stop scroll
             } else {
                 session.setAttribute("error", "Database insertion failed");
-                response.sendRedirect("Wrong.jsp");
+                response.sendRedirect("pages/status/Wrong.jsp");
             }
             return; // Exit after redirect
 
         } catch (IllegalArgumentException e) {
             // [4. Handle Validation Errors]
             session.setAttribute("error", e.getMessage());
-            response.sendRedirect("Wrong.jsp");
+            response.sendRedirect("pages/status/Wrong.jsp");
             return; // Exit after redirect
         } catch (Exception e) {
             // [5. Handle Unexpected Errors]
             session.setAttribute("error", "Server error: " + e.getMessage());
-            response.sendRedirect("Wrong.jsp");
+            response.sendRedirect("pages/status/Wrong.jsp");
             return; // Exit after redirect
         }
 

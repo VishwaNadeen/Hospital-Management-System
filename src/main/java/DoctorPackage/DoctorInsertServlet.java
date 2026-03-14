@@ -46,7 +46,7 @@ public class DoctorInsertServlet extends HttpServlet {
             } else {
                 request.setAttribute("errorMessage", "Phone number must be exactly 10 digits.");
             }
-            request.getRequestDispatcher(isAdminEmbed ? "AdminDoctorAdd.jsp" : "doctorInsert.jsp").forward(request, response);
+            request.getRequestDispatcher(isAdminEmbed ? "pages/admin/AdminDoctorAdd.jsp" : "pages/doctor/doctorInsert.jsp").forward(request, response);
             return;
         }
 
@@ -59,7 +59,7 @@ public class DoctorInsertServlet extends HttpServlet {
             dateOfBirth = dateFormat.parse(dob);
         } catch (ParseException e) {
             request.setAttribute("errorMessage", "Invalid date format for Date of Birth. Use yyyy-MM-dd.");
-            request.getRequestDispatcher(isAdminEmbed ? "AdminDoctorAdd.jsp" : "doctorInsert.jsp").forward(request, response);
+            request.getRequestDispatcher(isAdminEmbed ? "pages/admin/AdminDoctorAdd.jsp" : "pages/doctor/doctorInsert.jsp").forward(request, response);
             return;
         }
 
@@ -78,13 +78,13 @@ public class DoctorInsertServlet extends HttpServlet {
 
         if (isTrue) {
             if (isAdminEmbed) {
-                response.sendRedirect("AdminDoctorPanel.jsp");
+                response.sendRedirect("pages/admin/AdminDoctorPanel.jsp");
             } else {
-                response.sendRedirect("AdminDashboard.jsp");
+                response.sendRedirect("pages/admin/AdminDashboard.jsp");
             }
         } else {
             request.setAttribute("errorMessage", "Unable to add doctor. Please check the details and try again.");
-            jakarta.servlet.RequestDispatcher dis2 = request.getRequestDispatcher(isAdminEmbed ? "AdminDoctorAdd.jsp" : "doctorInsert.jsp");
+            jakarta.servlet.RequestDispatcher dis2 = request.getRequestDispatcher(isAdminEmbed ? "pages/admin/AdminDoctorAdd.jsp" : "pages/doctor/doctorInsert.jsp");
             dis2.forward(request, response);
         }
     }

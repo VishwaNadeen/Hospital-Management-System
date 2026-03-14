@@ -18,7 +18,7 @@ public class DoctorLogInServlet extends HttpServlet {
         // Basic client-side validation (should also have this in your HTML form)
         if (nic == null || nic.trim().isEmpty()) {
             request.setAttribute("error", "NIC number cannot be empty");
-            request.getRequestDispatcher("AdminPortral.jsp").forward(request, response);
+            request.getRequestDispatcher("pages/admin/AdminPortral.jsp").forward(request, response);
             return;
         }
 
@@ -28,16 +28,16 @@ public class DoctorLogInServlet extends HttpServlet {
             if (docDetails == null || docDetails.isEmpty()) {
                 // No doctor found with this NIC
                 request.setAttribute("error", "No doctor found with NIC: " + nic);
-                request.getRequestDispatcher("AdminPortral.jsp").forward(request, response);
+                request.getRequestDispatcher("pages/admin/AdminPortral.jsp").forward(request, response);
             } else {
                 // Doctor found, proceed to details page
                 request.setAttribute("docDetails", docDetails);
-                request.getRequestDispatcher("doctorDetails.jsp").forward(request, response);
+                request.getRequestDispatcher("pages/doctor/doctorDetails.jsp").forward(request, response);
             }
         } catch(Exception e) {
             e.printStackTrace();
             request.setAttribute("error", "An error occurred while searching. Please try again.");
-            request.getRequestDispatcher("AdminPortral.jsp").forward(request, response);
+            request.getRequestDispatcher("pages/admin/AdminPortral.jsp").forward(request, response);
         }
     }
 }

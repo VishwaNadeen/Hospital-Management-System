@@ -22,17 +22,17 @@ public class SearchServlet extends HttpServlet {
             List<Records> recDetails = RecordDButil.validate(nicID);
             
             if(recDetails == null || recDetails.isEmpty()) {
-                response.sendRedirect((isAdminEmbed ? "AdminMedicalRecordPanel.jsp" : "SearchRecord.jsp") + "?error=No+record+found+for+the+given+ID");
+                response.sendRedirect((isAdminEmbed ? "pages/admin/AdminMedicalRecordPanel.jsp" : "pages/record/SearchRecord.jsp") + "?error=No+record+found+for+the+given+ID");
                 return;
             }
             
             request.setAttribute("recDetails", recDetails);
-            RequestDispatcher dis = request.getRequestDispatcher("RecordDisplay.jsp");
+            RequestDispatcher dis = request.getRequestDispatcher("pages/record/RecordDisplay.jsp");
             dis.forward(request, response);
             
         } catch(Exception e) {
             e.printStackTrace();
-            response.sendRedirect((isAdminEmbed ? "AdminMedicalRecordPanel.jsp" : "SearchRecord.jsp") + "?error=An+error+occurred+while+searching");
+            response.sendRedirect((isAdminEmbed ? "pages/admin/AdminMedicalRecordPanel.jsp" : "pages/record/SearchRecord.jsp") + "?error=An+error+occurred+while+searching");
         }
     }
 }

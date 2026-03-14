@@ -19,9 +19,9 @@ public class DeleteOrderServlet extends HttpServlet {
         boolean isDeleted = OrderDBUtil.deleteOrderById(id);
         
         if (isDeleted) {
-            response.sendRedirect("Home.jsp");  // Redirect to confirmation page
+            response.sendRedirect("pages/home/Home.jsp");  // Redirect to confirmation page
         } else {
-            response.sendRedirect("unsuccess.jsp");  // Redirect to error page
+            response.sendRedirect("pages/status/unsuccess.jsp");  // Redirect to error page
         }
     }
 }

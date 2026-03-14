@@ -18,7 +18,7 @@ public class GetOrderServlet extends HttpServlet {
 
             if (order != null) {
                 request.setAttribute("order", order);
-                request.getRequestDispatcher("displayOrder.jsp").forward(request, response);
+                request.getRequestDispatcher("pages/pharmacy/displayOrder.jsp").forward(request, response);
             } else {
                 response.getWriter().println("Order not found.");
             }

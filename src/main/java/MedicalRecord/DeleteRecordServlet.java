@@ -20,14 +20,14 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		
 		if(isTrue==true) {
 			
-			jakarta.servlet.RequestDispatcher dispatcher = request.getRequestDispatcher("SearchRecord.jsp");
+			jakarta.servlet.RequestDispatcher dispatcher = request.getRequestDispatcher("pages/record/SearchRecord.jsp");
 			dispatcher.forward(request, response);
 		}
 		else {
 			List<Records> recDetails = RecordDButil.getRecordDetails(nic);
 			request.setAttribute("recDetails", recDetails);
 		
-			jakarta.servlet.RequestDispatcher dispatcher = request.getRequestDispatcher("RecordDisplay.jsp");
+			jakarta.servlet.RequestDispatcher dispatcher = request.getRequestDispatcher("pages/record/RecordDisplay.jsp");
 			dispatcher.forward(request, response);
 		}
 		

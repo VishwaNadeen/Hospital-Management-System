@@ -23,14 +23,14 @@ public class DoctorDeleteServlet extends HttpServlet {
 		
 		if (isTrue == true) {
 			//If delete success, navigate to this page
-			RequestDispatcher dispatcher = request.getRequestDispatcher("doctorInsert.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("pages/doctor/doctorInsert.jsp");
 			dispatcher.forward(request, response);
 		}
 		else {
 			List<Doctor> docdetails = DoctorDBUtil.getDoctorDetails(id_no);
 			request.setAttribute("docCetails", docdetails);
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("doctorDetails.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("pages/doctor/doctorDetails.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

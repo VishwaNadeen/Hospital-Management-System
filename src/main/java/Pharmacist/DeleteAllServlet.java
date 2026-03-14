@@ -28,7 +28,7 @@ public class DeleteAllServlet extends HttpServlet {
 			List <Pharmacist>phaDetails = PharmacistDBUtill.getById(id);
 			request.setAttribute("phaDetails", phaDetails);
 			
-			jakarta.servlet.RequestDispatcher dispatcher = (jakarta.servlet.RequestDispatcher) request.getRequestDispatcher("unsuccess.jsp");
+			jakarta.servlet.RequestDispatcher dispatcher = (jakarta.servlet.RequestDispatcher) request.getRequestDispatcher("pages/status/unsuccess.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

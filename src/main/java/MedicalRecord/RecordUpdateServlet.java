@@ -32,7 +32,7 @@ public class RecordUpdateServlet extends HttpServlet {
 		List<Records> recDetails = RecordDButil.getRecordDetails(nic);
 		request.setAttribute("recDetails", recDetails);
 		
-		jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("RecordDisplay.jsp");
+		jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("pages/record/RecordDisplay.jsp");
 		dis.forward(request, response);
 	}
 	else {
@@ -40,7 +40,7 @@ public class RecordUpdateServlet extends HttpServlet {
 		List<Records> recDetails = RecordDButil.getRecordDetails(nic);
 		request.setAttribute("recDetails", recDetails);
 		
-		jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("UpdateRecord.jsp");
+		jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("pages/record/UpdateRecord.jsp");
 		dis.forward(request, response);
 	}
 	

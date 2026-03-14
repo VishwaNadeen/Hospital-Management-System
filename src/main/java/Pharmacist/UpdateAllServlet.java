@@ -38,7 +38,7 @@ public class UpdateAllServlet extends HttpServlet {
 			dis.forward(request,response);
 			
 		} else {
-			jakarta.servlet.RequestDispatcher dis2 = request.getRequestDispatcher("unsuccess.jsp");
+			jakarta.servlet.RequestDispatcher dis2 = request.getRequestDispatcher("pages/status/unsuccess.jsp");
 			dis2.forward(request,response);
 		}
 	}

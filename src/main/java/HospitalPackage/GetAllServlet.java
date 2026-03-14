@@ -24,7 +24,7 @@ public class GetAllServlet extends HttpServlet {
 		List<PatientModel> allPatients = PatientCtrl.getAllPatient();//display details
 		request.setAttribute("allPatients", allPatients);
 		
-		RequestDispatcher dispatcher=request.getRequestDispatcher("Display.jsp");//display page
+		RequestDispatcher dispatcher=request.getRequestDispatcher("pages/patient/Display.jsp");//display page
 		dispatcher.forward(request,response);
 		
 	}
@@ -33,7 +33,7 @@ public class GetAllServlet extends HttpServlet {
 	
 		List<PatientModel> list = PatientCtrl.getAllPatient();
 		request.setAttribute("GetAllPatient", list);
-		request.getRequestDispatcher("Display.jsp").forward(request, response);
+		request.getRequestDispatcher("pages/patient/Display.jsp").forward(request, response);
 
 		
 	}

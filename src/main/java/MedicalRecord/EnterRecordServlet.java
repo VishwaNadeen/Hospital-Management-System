@@ -28,11 +28,11 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		isTrue = RecordDButil.insertRecordDetails(nic, age, gender, medicalHistory, vitalSigns, diagnosis, treatmentPlan, date);
 		
 		if(isTrue == true) {
-			RequestDispatcher dis = request.getRequestDispatcher("SearchRecord.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("pages/record/SearchRecord.jsp");
 			dis.forward(request, response);
 		}
 		else {
-			RequestDispatcher dis2 =request.getRequestDispatcher("SearchRecord.jsp");
+			RequestDispatcher dis2 =request.getRequestDispatcher("pages/record/SearchRecord.jsp");
 			dis2.forward(request, response);
 		}
 		
