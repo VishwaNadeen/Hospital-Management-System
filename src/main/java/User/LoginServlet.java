@@ -15,11 +15,12 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.sendRedirect("pages/home/Login.jsp");
+        response.sendRedirect(request.getContextPath() + "/pages/home/Login.jsp");
     }
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String contextPath = request.getContextPath();
 
 		String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -28,26 +29,26 @@ public class LoginServlet extends HttpServlet {
             // Check credentials
             if (UserDButil.validate(username, password)) {
                 if ("vishwa".equals(username)) {
-                    response.sendRedirect("pages/admin/AdminDashboard.jsp");
+                    response.sendRedirect(contextPath + "/pages/admin/AdminDashboard.jsp");
                 }
                 
                 else if ("kalana".equals(username)) {
-                    response.sendRedirect("pages/admin/AdminPharmacistPanel.jsp");
+                    response.sendRedirect(contextPath + "/pages/admin/AdminPharmacistPanel.jsp");
                 } 
                 
                 else if ("lakshan".equals(username)) {
-                    response.sendRedirect("pages/home/Home.jsp");
+                    response.sendRedirect(contextPath + "/pages/home/Home.jsp");
                 }
                 
                 else {
-                    response.sendRedirect("pages/home/Login.jsp?error=" + URLEncoder.encode("Unauthorized user", StandardCharsets.UTF_8));
+                    response.sendRedirect(contextPath + "/pages/home/Login.jsp?error=" + URLEncoder.encode("Unauthorized user", StandardCharsets.UTF_8));
                 }
             } else {
-                response.sendRedirect("pages/home/Login.jsp?error=" + URLEncoder.encode("Invalid username or password", StandardCharsets.UTF_8));
+                response.sendRedirect(contextPath + "/pages/home/Login.jsp?error=" + URLEncoder.encode("Invalid username or password", StandardCharsets.UTF_8));
             }
         } catch (Exception e) {
             e.printStackTrace();
-            response.sendRedirect("pages/home/Login.jsp?error=" + URLEncoder.encode("Login failed. Please try again.", StandardCharsets.UTF_8));
+            response.sendRedirect(contextPath + "/pages/home/Login.jsp?error=" + URLEncoder.encode("Login failed. Please try again.", StandardCharsets.UTF_8));
         }
 	}
 

@@ -16,7 +16,7 @@
 
     boolean isHome = currentPage.equals("Home.jsp") || currentPage.isEmpty();
     boolean isServices = currentPage.equals("services.jsp");
-    boolean isDoctors = currentPage.equals("doctorList.jsp") || currentPage.equals("AllDoctorsDisplay.jsp") || currentUri.contains("DoctorsListServlet") || currentUri.contains("AllDoctorsServlet");
+    boolean isDoctors = currentPage.equals("doctorList.jsp") || currentPage.equals("doctorDetails.jsp") || currentUri.contains("DoctorsListServlet") || currentUri.contains("DoctorDetailsServlet");
     boolean isAppointment = currentPage.equals("Appointment.jsp") || currentPage.equals("SearchId.jsp") || currentUri.contains("SearchServlet2") || currentUri.contains("GetAllServlet");
     boolean isLogin = currentPage.equals("Login.jsp");
 %>

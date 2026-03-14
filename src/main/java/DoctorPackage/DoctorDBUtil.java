@@ -1,5 +1,6 @@
 package DoctorPackage;
 
+import ConnectionUtill.ConnectionUtill;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -19,7 +20,7 @@ public class DoctorDBUtil {
 		
 		//validate
 		try {
-			con = DBConnect.getConnection();
+			con = ConnectionUtill.getDBConnection();
 			stmt = con.createStatement();
 			
 			String sql ="select * from doctor where id_no='"+nic+"'";
@@ -66,7 +67,7 @@ public class DoctorDBUtil {
 		boolean isSuccess = false;
 		
 		try {
-			con = DBConnect.getConnection();
+			con = ConnectionUtill.getDBConnection();
 			stmt = con.createStatement();
 			
 			String sql = "insert into doctor values (0, '"+fname+"', '"+lname+"', '"+id+"', '"+uname+"', '"+pass+"', '"+dob+"', '"+gender+"', '"+number+"', '"+email+"'"
@@ -94,7 +95,7 @@ public class DoctorDBUtil {
 		
 		try {
 			
-			con = DBConnect.getConnection();
+			con = ConnectionUtill.getDBConnection();
 			stmt = con.createStatement();
 			
 			String sql = "update doctor set first_name='"+first_name+"', last_name='"+last_name+"', username='"+user_name+"', password='"+password+"', dob='"+dob+"', gender='"+gender+"', "
@@ -126,7 +127,7 @@ public class DoctorDBUtil {
 		
 		try {
 			
-			con = DBConnect.getConnection();
+			con = ConnectionUtill.getDBConnection();
 			stmt = con.createStatement();
 			
 			String sql = "select * from doctor where id_no ='"+id_no+"'";
@@ -171,7 +172,7 @@ public class DoctorDBUtil {
 		
 		try{
 			
-			con = DBConnect.getConnection();
+			con = ConnectionUtill.getDBConnection();
 			stmt = con.createStatement();
 			
 			String sql = "delete from doctor where id_no = '"+id_no+"'";
@@ -199,7 +200,7 @@ public class DoctorDBUtil {
 		ArrayList <Doctor> docs = new ArrayList<>();
 		
 		try {
-			con = DBConnect.getConnection();
+			con = ConnectionUtill.getDBConnection();
 			stmt = con.createStatement();
 			
 			String sql = "select * from doctor";
@@ -244,7 +245,7 @@ public class DoctorDBUtil {
 		ArrayList <Doctor> doc = new ArrayList<>();
 		
 		try {
-			con = DBConnect.getConnection();
+			con = ConnectionUtill.getDBConnection();
 			stmt = con.createStatement();
 			
 			String sql = "select * from doctor where id_no = '"+nic+"'";
@@ -289,7 +290,7 @@ public class DoctorDBUtil {
 			String address, String specialization, String qualification, String experience_years, String availability, String status, String created_at, String updated_at) {
 		
 		try {
-			con = DBConnect.getConnection();
+			con = ConnectionUtill.getDBConnection();
 			stmt = con.createStatement();
 			
 			String sql = "update doctor set first_name='"+first_name+"', last_name='"+last_name+"', username='"+user_name+"', password='"+password+"', dob='"+dob+"', gender='"+gender+"', "
@@ -318,7 +319,7 @@ public class DoctorDBUtil {
 		
 		try{
 			
-			con = DBConnect.getConnection();
+			con = ConnectionUtill.getDBConnection();
 			stmt = con.createStatement();
 			
 			String sql = "delete from doctor where id_no = '"+id_no+"'";

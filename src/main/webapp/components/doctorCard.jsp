@@ -9,6 +9,7 @@
     String availability = request.getParameter("availability");
     String age = request.getParameter("age");
     String gender = request.getParameter("gender");
+    String idNo = request.getParameter("idNo");
 %>
 
 <div class="doctor-card">
@@ -27,5 +28,8 @@
         <p><span class="label">Availability:</span><span class="value"><%= availability != null ? availability : "N/A" %></span></p>
         <p><span class="label">Age:</span><span class="value"><%= age != null ? age : "N/A" %></span></p>
         <p><span class="label">Gender:</span><span class="value"><%= gender != null ? gender : "N/A" %></span></p>
+        <% if (idNo != null && !idNo.trim().isEmpty()) { %>
+            <p><a href="DoctorDetailsServlet?id_no=<%= idNo %>">View Details</a></p>
+        <% } %>
     </div>
 </div>

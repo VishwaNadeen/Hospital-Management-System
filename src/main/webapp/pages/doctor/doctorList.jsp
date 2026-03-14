@@ -1,5 +1,5 @@
-<%@ page import="Doctor.Doctor" %>
-<%@ page import="Doctor.DoctorDBUtil" %>
+<%@ page import="DoctorPackage.Doctor" %>
+<%@ page import="DoctorPackage.DoctorDBUtil" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.time.LocalDate" %>
 <%@ page import="java.time.Period" %>
@@ -10,7 +10,7 @@
     response.setHeader("Pragma", "no-cache");
     response.setDateHeader("Expires", 0);
 
-    List<Doctor> doctorsList = DoctorDBUtil.getAllDoctors();
+    List<Doctor> doctorsList = DoctorDBUtil.getAllDoctor();
 
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 %>
@@ -43,19 +43,20 @@
                                 String statusClass = "active".equalsIgnoreCase(status) ? "status-active" : "status-inactive";
                 %>
                 <jsp:include page="/components/doctorCard.jsp">
-                    <jsp:param name="fullName" value='<%= "Dr. " + doctor.getFirstName() + " " + doctor.getLastName() %>'/>
+                    <jsp:param name="fullName" value='<%= "Dr. " + doctor.getFirst_name() + " " + doctor.getLast_name() %>'/>
                     <jsp:param name="status" value='<%= status %>'/>
                     <jsp:param name="statusClass" value='<%= statusClass %>'/>
                     <jsp:param name="specialization" value='<%= doctor.getSpecialization() %>'/>
                     <jsp:param name="qualification" value='<%= doctor.getQualification() %>'/>
-                    <jsp:param name="experienceYears" value='<%= doctor.getExperienceYears() %>'/>
+                    <jsp:param name="experienceYears" value='<%= doctor.getExperience_years() %>'/>
                     <jsp:param name="availability" value='<%= doctor.getAvailability() %>'/>
                     <jsp:param name="age" value='<%= String.valueOf(age) %>'/>
                     <jsp:param name="gender" value='<%= doctor.getGender() %>'/>
+                    <jsp:param name="idNo" value='<%= doctor.getId_no() %>'/>
                 </jsp:include>
                 <%
                             } catch (Exception e) {
-                                out.println("<div class='doctor-card error-card'><p>Error parsing DOB for doctor: " + doctor.getFirstName() + "</p></div>");
+                                out.println("<div class='doctor-card error-card'><p>Error parsing DOB for doctor: " + doctor.getFirst_name() + "</p></div>");
                             }
                         }
                     } else {

@@ -148,7 +148,7 @@
             
             <div class="button-container">
                 <input type="submit" class="update-btn" name="submit" value="Confirm Update">
-                <button type="button" class="cancel-btn" onclick="window.location.href='AllDoctorsServlet'">Cancel</button>
+                <button type="button" class="cancel-btn" onclick="window.location.href='pages/admin/AdminDoctorPanel.jsp'">Cancel</button>
             </div>
         </form>
     </div>

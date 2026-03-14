@@ -1,4 +1,4 @@
-package Doctor;
+package DoctorPackage;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -16,7 +16,7 @@ public class DoctorsListServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        List<Doctor> doctorsList = DoctorDBUtil.getAllDoctors();
+        List<Doctor> doctorsList = DoctorDBUtil.getAllDoctor();
         request.setAttribute("doctorsList", doctorsList);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/doctor/doctorList.jsp");

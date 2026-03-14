@@ -11,10 +11,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @WebServlet("/DoctorInsertServlet")
-public class DoctorInsertServlet extends HttpServlet {
+public class InsertServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    public DoctorInsertServlet() {
+    public InsertServlet() {
         super();
     }
 
@@ -78,9 +78,9 @@ public class DoctorInsertServlet extends HttpServlet {
 
         if (isTrue) {
             if (isAdminEmbed) {
-                response.sendRedirect("pages/admin/AdminDoctorPanel.jsp");
+                response.sendRedirect(request.getContextPath() + "/pages/admin/AdminDoctorPanel.jsp");
             } else {
-                response.sendRedirect("pages/admin/AdminDashboard.jsp");
+                response.sendRedirect(request.getContextPath() + "/pages/admin/AdminDashboard.jsp");
             }
         } else {
             request.setAttribute("errorMessage", "Unable to add doctor. Please check the details and try again.");

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-response.sendRedirect("pages/patient/Appointment.jsp#lookup");
+response.sendRedirect(request.getContextPath() + "/pages/patient/Appointment.jsp#lookup");
 %>

@@ -10,7 +10,7 @@
     <!--doctor insert-->     
 	<servlet>
 		<servlet-name>doctorInsert</servlet-name>
-		<servlet-class>DoctorPackage.DoctorInsertServlet</servlet-class>
+		<servlet-class>DoctorPackage.InsertServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
@@ -65,22 +65,22 @@
 	<!--all doctor update--> 
 	<servlet>
 		<servlet-name>allDoctorsUpdate</servlet-name>
-		<servlet-class>DoctorPackage.AllDoctorsUpdateServlet</servlet-class>
+		<servlet-class>DoctorPackage.UpdateServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
 		<servlet-name>allDoctorsUpdate</servlet-name>
-		<url-pattern>AllDoctorsUpdateServlet</url-pattern>
+		<url-pattern>/AllDoctorsUpdateServlet</url-pattern>
 	</servlet-mapping>
 	
 	<!--all doctor delete--> 
 	<servlet>
 		<servlet-name>allDoctorsDelete</servlet-name>
-		<servlet-class>DoctorPackage.AllDoctorsDeleteServlet1</servlet-class>
+		<servlet-class>DoctorPackage.DeleteServlet</servlet-class>
 	</servlet>
 	
 	<servlet-mapping>
 		<servlet-name>allDoctorsDelete</servlet-name>
-		<url-pattern>/AllDoctorsDeleteServlet1</url-pattern>
+		<url-pattern>/AllDoctorsDeleteServlet</url-pattern>
 	</servlet-mapping>
 </web-app>

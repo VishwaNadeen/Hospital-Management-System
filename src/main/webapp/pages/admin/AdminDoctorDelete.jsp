@@ -34,7 +34,7 @@
 	
 	<h1>Delete Details</h1>
 	
-	<form action="DoctorDeleteServlet" method="post">
+	<form action="AllDoctorsDeleteServlet" method="post">
 		First Name <input type="text" name="first_name" value="<%=first_name%>" readonly><br>
 		Last Name <input type="text" name="last_name" value="<%=last_name%>" readonly><br>
 		NIC Number <input type="text" name="id_no" value="<%=id_no%>" readonly><br>
