@@ -18,11 +18,15 @@ public class DetailsServlet extends HttpServlet {
             throws ServletException, IOException {
         String idNo = request.getParameter("id_no");
         if (idNo == null || idNo.trim().isEmpty()) {
-            response.sendRedirect("pages/doctor/doctorList.jsp");
+            response.sendRedirect(request.getContextPath() + "/pages/doctor/doctorList.jsp");
             return;
         }
 
         List<Doctor> docDetails = DoctorDBUtil.getByID(idNo);
+        if (docDetails == null || docDetails.isEmpty()) {
+            response.sendRedirect(request.getContextPath() + "/pages/doctor/doctorList.jsp?error=Doctor+not+found");
+            return;
+        }
         request.setAttribute("docDetails", docDetails);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/pages/doctor/doctorDetails.jsp");

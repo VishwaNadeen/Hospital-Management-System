@@ -1,237 +1,261 @@
-@charset "UTF-8";
-/* doctor-details-redesign.css - Modern Doctor Profile Page */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
 
-:root {
-  --primary-blue: #3498db;
-  --secondary-blue: #2980b9;
-  --primary-green: #2ecc71;
-  --secondary-green: #27ae60;
-  --light-green: rgba(46, 204, 113, 0.1);
-  --light-blue: rgba(52, 152, 219, 0.1);
-  --text-dark: #2c3e50;
-  --text-muted: #7f8c8d;
-  --white: #ffffff;
-  --border-radius: 12px;
-  --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  --transition: all 0.3s ease;
+body.doctor-profile-page {
+    --bg-1: #f4fff9;
+    --bg-2: #eef4ff;
+    --ink: #17314f;
+    --muted: #5d748e;
+    --line: rgba(23, 49, 79, 0.14);
+    --brand: #0b7c70;
+    --brand-2: #3a8dff;
+    --card: rgba(255, 255, 255, 0.9);
+    --shadow: 0 18px 42px rgba(14, 44, 76, 0.16);
+    font-family: 'Outfit', sans-serif;
+    margin: 0;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 8% 14%, rgba(11, 124, 112, 0.16), transparent 35%),
+        radial-gradient(circle at 90% 12%, rgba(58, 141, 255, 0.17), transparent 36%),
+        linear-gradient(160deg, var(--bg-1), var(--bg-2));
 }
 
-/* Base Styles */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.7;
-  color: var(--text-dark);
-  background: linear-gradient(135deg, var(--light-blue) 0%, var(--light-green) 100%);
-  margin: 0;
-  padding: 40px 20px;
-  min-height: 100vh;
+body.doctor-profile-page .profile-main {
+    min-height: calc(100vh - 180px);
+    padding: 34px 20px 42px;
 }
 
-.med-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+body.doctor-profile-page .profile-shell {
+    max-width: 1120px;
+    margin: 0 auto;
 }
 
-/* Profile Container */
-.doc-profile-container {
-  position: relative;
-  margin-top: 40px;
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  padding: 0;
-  overflow: hidden;
-  border-top: 4px solid var(--primary-green);
+body.doctor-profile-page .profile-topbar {
+    margin-bottom: 14px;
 }
 
-/* Profile Header */
-.doc-profile-header {
-  background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
-  padding: 25px 40px;
-  color: var(--white);
-  position: relative;
+body.doctor-profile-page .back-link {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    color: #125a9f;
+    border: 1px solid rgba(18, 90, 159, 0.22);
+    background: rgba(255, 255, 255, 0.72);
+    border-radius: 999px;
+    padding: 9px 14px;
+    transition: all 0.2s ease;
 }
 
-.doc-profile-name {
-  margin: 0;
-  font-size: 32px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
+body.doctor-profile-page .back-link:hover {
+    transform: translateY(-1px);
+    background: #ffffff;
+    border-color: rgba(18, 90, 159, 0.4);
 }
 
-.doc-profile-name::before {
-  content: "";
-  display: inline-block;
-  width: 10px;
-  height: 30px;
-  background-color: var(--white);
-  margin-right: 15px;
-  border-radius: 3px;
+body.doctor-profile-page .profile-hero {
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 28px;
+    background: linear-gradient(140deg, rgba(255, 255, 255, 0.95), rgba(238, 247, 255, 0.9));
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 22px;
+    animation: liftIn 420ms ease both;
 }
 
-.doc-profile-specialization {
-  margin: 8px 0 0;
-  font-weight: 400;
-  opacity: 0.9;
-  font-size: 18px;
-  padding-left: 25px;
+body.doctor-profile-page .eyebrow {
+    margin: 0;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--brand);
+    font-weight: 700;
 }
 
-/* Profile Details */
-.doc-profile-body {
-  padding: 40px;
+body.doctor-profile-page .hero-main h1 {
+    margin: 8px 0;
+    font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #103861;
 }
 
-.doc-info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 25px;
+body.doctor-profile-page .hero-sub {
+    margin: 0;
+    color: var(--muted);
+    font-weight: 500;
 }
 
-.doc-info-field {
-  margin: 0 0 15px;
-  padding: 15px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: var(--border-radius);
-  border-left: 3px solid transparent;
-  transition: var(--transition);
+body.doctor-profile-page .hero-tags {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
-.doc-info-field:hover {
-  background-color: var(--white);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-  transform: translateY(-2px);
+body.doctor-profile-page .tag {
+    font-size: 0.78rem;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 7px 12px;
+    background: #e8f4ff;
+    border: 1px solid #cfe5ff;
+    color: #22588f;
 }
 
-.doc-info-personal {
-  border-left-color: var(--primary-blue);
+body.doctor-profile-page .tag.status {
+    border: 0;
 }
 
-.doc-info-professional {
-  border-left-color: var(--primary-green);
+body.doctor-profile-page .status-active {
+    background: #d9f6eb;
+    color: #0a6858;
 }
 
-.doc-info-system {
-  border-left-color: var(--text-muted);
+body.doctor-profile-page .status-inactive {
+    background: #ffe0e0;
+    color: #8f2d2d;
 }
 
-.doc-info-label {
-  color: var(--primary-blue);
-  font-weight: 600;
-  display: block;
-  margin-bottom: 5px;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+body.doctor-profile-page .id-chip {
+    min-width: 140px;
+    border: 1px dashed rgba(15, 74, 140, 0.4);
+    border-radius: 14px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    text-align: center;
 }
 
-.doc-info-value {
-  font-size: 16px;
-  word-break: break-word;
+body.doctor-profile-page .id-chip span {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 4px;
 }
 
-/* Status Styles */
-.doc-info-field.doc-status-field {
-  padding: 15px;
-  font-weight: 600;
+body.doctor-profile-page .id-chip strong {
+    font-size: 1.1rem;
+    color: #0f3f6d;
 }
 
-.doc-status-active {
-  color: var(--secondary-green);
-  background-color: rgba(46, 204, 113, 0.1);
-  border-left-color: var(--secondary-green);
+body.doctor-profile-page .details-grid {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
 }
 
-.doc-status-inactive {
-  color: #e74c3c;
-  background-color: rgba(231, 76, 60, 0.1);
-  border-left-color: #e74c3c;
+body.doctor-profile-page .detail-card {
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--card);
+    box-shadow: 0 10px 24px rgba(21, 53, 90, 0.1);
+    padding: 20px;
+    backdrop-filter: blur(4px);
+    animation: liftIn 500ms ease both;
 }
 
-/* Action Buttons Container */
-.doc-action-container {
-  display: flex;
-  gap: 20px;
-  margin-top: 40px;
-  padding: 0 40px 40px;
+body.doctor-profile-page .detail-card.full {
+    grid-column: 1 / -1;
 }
 
-/* Button Styles */
-.doc-btn {
-  padding: 14px 28px;
-  border: none;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  font-weight: 600;
-  transition: var(--transition);
-  font-size: 16px;
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-  min-width: 160px;
+body.doctor-profile-page .detail-card h2 {
+    margin: 0 0 10px;
+    font-size: 1.1rem;
+    color: #13456f;
 }
 
-.doc-btn-update {
-  background-color: var(--primary-green);
-  color: var(--white);
+body.doctor-profile-page .detail-card dl {
+    margin: 0;
 }
 
-.doc-btn-update:hover {
-  background-color: var(--secondary-green);
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+body.doctor-profile-page .detail-card dl div {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
 }
 
-.doc-btn-delete {
-  background-color: #e74c3c;
-  color: var(--white);
+body.doctor-profile-page .detail-card dl div:last-child {
+    border-bottom: 0;
 }
 
-.doc-btn-delete:hover {
-  background-color: #c0392b;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+body.doctor-profile-page .detail-card dt {
+    font-weight: 600;
+    color: var(--muted);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-  .doc-info-grid {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  }
+body.doctor-profile-page .detail-card dd {
+    margin: 0;
+    font-weight: 600;
+    color: var(--ink);
+    word-break: break-word;
 }
 
-@media (max-width: 768px) {
-  .doc-info-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .doc-profile-header {
-    padding: 20px 25px;
-  }
-  
-  .doc-profile-body {
-    padding: 25px;
-  }
-  
-  .doc-action-container {
-    flex-direction: column;
-    padding: 0 25px 25px;
-  }
-  
-  .doc-btn {
-    width: 100%;
-  }
+body.doctor-profile-page .empty-state {
+    max-width: 720px;
+    margin: 30px auto;
+    border-radius: 18px;
+    border: 1px solid var(--line);
+    background: #ffffff;
+    box-shadow: var(--shadow);
+    text-align: center;
+    padding: 26px;
 }
 
-@media (max-width: 480px) {
-  .doc-profile-name {
-    font-size: 24px;
-  }
-  
-  .doc-profile-specialization {
-    font-size: 16px;
-  }
+body.doctor-profile-page .empty-state h2 {
+    margin: 0 0 8px;
+}
+
+body.doctor-profile-page .empty-state p {
+    margin: 0 0 16px;
+    color: var(--muted);
+}
+
+@keyframes liftIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 900px) {
+    body.doctor-profile-page .profile-hero {
+        flex-direction: column;
+    }
+
+    body.doctor-profile-page .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.doctor-profile-page .detail-card.full {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    body.doctor-profile-page .profile-main {
+        padding: 24px 12px 30px;
+    }
+
+    body.doctor-profile-page .profile-hero {
+        padding: 20px;
+    }
+
+    body.doctor-profile-page .detail-card {
+        padding: 16px;
+    }
+
+    body.doctor-profile-page .detail-card dl div {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
 }
