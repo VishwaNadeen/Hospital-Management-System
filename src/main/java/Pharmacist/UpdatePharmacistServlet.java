@@ -35,7 +35,7 @@ public class UpdatePharmacistServlet extends HttpServlet {
 			List <Pharmacist> phaDetails = PharmacistDBUtill.getPharmacistDetails(id);
 			request.setAttribute("phaDetails", phaDetails);
 			
-			jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("pages/pharmacy/PharmacistDetails.jsp");
+			jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("pages/admin/PharmacistDetails.jsp");
 			dis.forward(request, response);
 		}
 		else {

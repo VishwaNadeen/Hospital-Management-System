@@ -19,12 +19,7 @@ public class PharmacistGetAllServlet extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		
-		List <Pharmacist> allPharmacist = PharmacistDBUtill.getALLPharmacist();
-		request.setAttribute("allPharmacist", allPharmacist);
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("pages/pharmacy/AllDrugDetails.jsp");
-		dispatcher.forward(request, response);
+		response.sendRedirect("pages/admin/AdminPharmacistPanel.jsp");
 	}
 
 }

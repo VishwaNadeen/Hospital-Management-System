@@ -25,7 +25,8 @@ List<Pharmacist> allPharmacists = PharmacistDBUtill.getALLPharmacist();
                             <input type="text" id="searchInput" placeholder="Search by item id, name, type, supplier, status...">
                             <button type="button" id="searchTrigger" class="btn btn-primary search-btn">Search</button>
                         </div>
-                        <a href="pages/pharmacy/pharmacistInsert.jsp" class="btn btn-warning add-btn-inline">Add Item</a>
+                        <a href="pages/admin/AdminPharmacistInsert.jsp" class="btn btn-warning add-btn-inline">Add Item</a>
+                        <a href="pages/admin/AdminPharmacistSearch.jsp" class="btn btn-primary add-btn-inline">Search Item</a>
                     </div>
                 </section>
 

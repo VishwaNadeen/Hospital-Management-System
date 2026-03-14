@@ -11,7 +11,7 @@
                 <ul class="list-unstyled">
                     <li><a href="pages/home/Home.jsp" class="text-light">Home</a></li>
                     <li><a href="pages/home/services.jsp" class="text-light">Services</a></li>
-                    <li><a href="DoctorsListServlet" class="text-light">Doctors</a></li>
+                    <li><a href="pages/doctor/doctorList.jsp" class="text-light">Doctors</a></li>
                     <li><a href="pages/patient/Appointment.jsp" class="text-light">Appointments</a></li>
                 </ul>
             </div>

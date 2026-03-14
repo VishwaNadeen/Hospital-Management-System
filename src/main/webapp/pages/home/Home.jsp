@@ -58,7 +58,7 @@
             <p>Schedule with top specialists in minutes</p>
         </div>
 
-        <div class="access-card" onclick="location.href='pages/pharmacy/orderInsert.jsp';" style="cursor: pointer;">
+        <div class="access-card" onclick="location.href='pages/order/orderInsert.jsp';" style="cursor: pointer;">
             <i class="fas fa-user-md fa-3x"></i>
             <h3>Pharmacy</h3>
             <p>Browse 500+ Medicines</p> 

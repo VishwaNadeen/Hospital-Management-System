@@ -50,7 +50,7 @@
         <td>${phas.description}</td>
         
         <td>
-        	<a href="pages/pharmacy/pharmacistAllUpdate.jsp?item_id=${phas.item_id}&item_name=${phas.item_name}&item_type=${phas.item_type}&quantity_in_stock=${phas.quantity_in_stock}&unit_price=${phas.unit_price}&
+            	<a href="pages/admin/AdminPharmacistAllUpdate.jsp?item_id=${phas.item_id}&item_name=${phas.item_name}&item_type=${phas.item_type}&quantity_in_stock=${phas.quantity_in_stock}&unit_price=${phas.unit_price}&
         	supplier_name=${phas.supplier_name}&date_received=${phas.date_received}&exp_date=${phas.exp_date}&status=${phas.status}&description=${phas.description}">
         		<button type="submit">Update</button>
         	</a>

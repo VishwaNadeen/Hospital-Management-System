@@ -43,16 +43,11 @@ public class AllDoctorsUpdateServlet extends HttpServlet {
 			List<Doctor> docDetails = DoctorDBUtil.getByID(id_no);
 			request.setAttribute("docDetails", docDetails);
 			
-			String alertMessage = "Data Update Successful";
-			response.getWriter().println("<script> alert('"+alertMessage+"') window.location.href='AllDoctorsServlet'</script>");
-			
-			jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("AllDoctorsServlet");
-			dis.forward(request, response);
+			response.sendRedirect("pages/admin/AdminDoctorPanel.jsp");
 			}
 		else {
-			
-			String alertMessage = "Data Update Unsuccessful";
-			response.getWriter().println("<script> alert('"+alertMessage+"') window.location.href='AllDoctorsServlet'</script>");
+			request.setAttribute("error", "Data Update Unsuccessful");
+			request.getRequestDispatcher("pages/admin/AdminDoctorUpdate.jsp").forward(request, response);
 		}
 		
 	}

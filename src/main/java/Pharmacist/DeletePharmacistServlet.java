@@ -24,8 +24,7 @@ public class DeletePharmacistServlet extends HttpServlet {
 		isTrue = PharmacistDBUtill.deletePharmacist(id);
 		 
 		if(isTrue == true ) {
-			jakarta.servlet.RequestDispatcher dispatcher = (jakarta.servlet.RequestDispatcher) request.getRequestDispatcher("pages/pharmacy/PharmacistHome.jsp");
-			dispatcher.forward(request, response);
+			response.sendRedirect("pages/admin/AdminPharmacistPanel.jsp");
 		}
 		else {
 			List <Pharmacist>phaDetails = PharmacistDBUtill.getPharmacistDetails(id);

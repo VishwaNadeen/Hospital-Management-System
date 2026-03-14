@@ -34,14 +34,14 @@ public class PharmacistInsert extends HttpServlet {
 		if (!expDate.isAfter(today)) {
 			// Optionally, set error attribute and redirect to error page
 			request.setAttribute("error", "Expire date must be a future date.");
-			request.getRequestDispatcher("pages/pharmacy/pharmacistInsert.jsp").forward(request, response);
+			request.getRequestDispatcher("pages/admin/AdminPharmacistInsert.jsp").forward(request, response);
 			return;
 		}
 
 		@SuppressWarnings("unused")
 		boolean isTrue = PharmacistDBUtill.insertpharmacist(itemId, name, type, qnty, price, sname, rdate, exp, status, description);
 
-		jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("pages/pharmacy/pharmacistInsert.jsp");
+		jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("pages/admin/AdminPharmacistInsert.jsp");
 		dis.forward(request, response);
 	}
 }

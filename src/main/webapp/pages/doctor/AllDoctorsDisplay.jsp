@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+    if (request.getAttribute("doctorsAll") == null) {
+        request.getRequestDispatcher("/AllDoctorsServlet").forward(request, response);
+        return;
+    }
+%>
 
 <!DOCTYPE html>
 <html>
@@ -37,7 +43,6 @@
                 <th>Status</th>
                 <th>Created At</th>
                 <th>Updated At</th>
-                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -60,24 +65,13 @@
                     <td>${docs.status}</td>
                     <td>${docs.created_at}</td>
                     <td>${docs.updated_at}</td>
-                    
-                    <td>
-                        <a href="pages/doctor/allDoctorsUpdate.jsp?first_name=${docs.first_name}&last_name=${docs.last_name}&id_no=${docs.id_no}&username=${docs.username}&password=${docs.password}&dob=${docs.dob}&gender=${docs.gender}&phone=${docs.phone}&email=${docs.email}&address=${docs.address}&specialization=${docs.specialization}&qualification=${docs.qualification}&experience_years=${docs.experience_years}&availability=${docs.availability}&status=${docs.status}&created_at=${docs.created_at}&updated_at=${docs.updated_at}&">
-                            <button>Update</button>
-                        </a>
-                        
-                        <form action="AllDoctorsDeleteServlet" method="post" style="display: inline;">
-                            <input type="hidden" name="id_no" value="${docs.id_no}">
-                            <button type="submit">Delete</button>
-                        </form>
-                    </td>
                 </tr>
             </c:forEach>
         </tbody>
     </table>
     
     <div class="home-link">
-        <a href="pages/admin/AdminDashboard.jsp"><- Back to Dashboard</a>
+        <a href="pages/doctor/doctorList.jsp"><- Back to Doctors</a>
     </div>
     
     <script>

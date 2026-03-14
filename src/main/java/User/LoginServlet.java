@@ -32,11 +32,11 @@ public class LoginServlet extends HttpServlet {
                 }
                 
                 else if ("kalana".equals(username)) {
-                    response.sendRedirect("pages/pharmacy/PharmacistHome.jsp");
+                    response.sendRedirect("pages/admin/AdminPharmacistPanel.jsp");
                 } 
                 
                 else if ("lakshan".equals(username)) {
-                    response.sendRedirect("pages/record/SearchRecord.jsp");
+                    response.sendRedirect("pages/home/Home.jsp");
                 }
                 
                 else {

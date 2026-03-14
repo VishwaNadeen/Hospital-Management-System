@@ -22,9 +22,7 @@ public class AllDoctorsDeleteServlet extends HttpServlet {
 		isTrue = DoctorDBUtil.allDeleteDoctor(id_no);
 		
 		if (isTrue == true) {
-			//If delete success, navigate to this page
-			RequestDispatcher dispatcher = request.getRequestDispatcher("AllDoctorsServlet");
-			dispatcher.forward(request, response);
+			response.sendRedirect("pages/admin/AdminDoctorPanel.jsp");
 		}
 		else {
 			List<Doctor> docdetails = DoctorDBUtil.getByID(id_no);

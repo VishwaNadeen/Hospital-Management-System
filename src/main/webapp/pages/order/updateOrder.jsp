@@ -74,7 +74,7 @@
 
                     <div class="uo-form-actions">
                         <input type="submit" value="Update Order" class="uo-submit-btn">
-                        <a href="pages/pharmacy/orderInsert.jsp" class="uo-cancel-btn">Cancel</a>
+                        <a href="pages/order/orderInsert.jsp" class="uo-cancel-btn">Cancel</a>
                     </div>
                 </form>
             </div>

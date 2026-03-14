@@ -51,7 +51,7 @@
                 <td>${pha.description}</td>
                 <td>
                     <div class="action-buttons">
-                        <c:url value="pages/pharmacy/updatePharmacist.jsp" var="phaUpdate">
+                        <c:url value="pages/admin/updatePharmacist.jsp" var="phaUpdate">
                             <c:param name="id" value="${pha.item_id}"/>
                             <c:param name="name" value="${pha.item_name}"/>
                             <c:param name="type" value="${pha.item_type}"/>
@@ -65,7 +65,7 @@
                         </c:url>
                         <a href="${phaUpdate}" class="btn btn-update">Update</a>
 
-                        <c:url value="pages/pharmacy/deletepharmacist.jsp" var="phaDelete">
+                        <c:url value="pages/admin/deletepharmacist.jsp" var="phaDelete">
                             <c:param name="id" value="${pha.item_id}"/>
                             <c:param name="name" value="${pha.item_name}"/>
                         </c:url>
@@ -78,7 +78,7 @@
 </table>
 
 <div class="home-link">
-    <a href="pages/pharmacy/PharmacistHome.jsp">← Back to Dashboard</a>
+    <a href="pages/admin/AdminPharmacistPanel.jsp">← Back to Dashboard</a>
 </div>
 
 <jsp:include page="/components/footer.jsp" />

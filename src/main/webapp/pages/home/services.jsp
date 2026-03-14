@@ -55,11 +55,11 @@
 
 <script>
     function goToPharmacyPage() {
-        window.location.href = "pages/pharmacy/orderInsert.jsp";
+        window.location.href = "pages/order/orderInsert.jsp";
     }
     
     function goToDoctorPage() {
-        window.location.href = "DoctorsListServlet";
+        window.location.href = "pages/doctor/doctorList.jsp";
     }
 </script>
 

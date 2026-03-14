@@ -22,11 +22,11 @@
             </div>
 
             <nav class="sidebar-nav" aria-label="Admin navigation">
-                <a class="nav-item active js-workspace-link" href="pages/admin/AdminDoctorPanel.jsp" target="adminWorkspaceFrame" data-title="Doctor Portal" data-match="pages/admin/AdminDoctorPanel.jsp,pages/admin/AdminDoctorAdd.jsp,pages/doctor/doctorInsert.jsp,pages/doctor/AllDoctorsDisplay.jsp">
+                <a class="nav-item active js-workspace-link" href="pages/admin/AdminDoctorPanel.jsp" target="adminWorkspaceFrame" data-title="Doctor Portal" data-match="pages/admin/AdminDoctorPanel.jsp,pages/admin/AdminDoctorAdd.jsp,pages/admin/AdminDoctorUpdate.jsp,pages/admin/AdminDoctorDelete.jsp">
                     <i class="fa-solid fa-user-doctor"></i>
                     <span>Doctor Portal</span>
                 </a>
-                <a class="nav-item js-workspace-link" href="pages/admin/AdminPharmacistPanel.jsp" target="adminWorkspaceFrame" data-title="Pharmacist Portal" data-match="pages/admin/AdminPharmacistPanel.jsp,pages/pharmacy/PharmacistHome.jsp,pages/pharmacy/PharmacistSearch.jsp,pages/pharmacy/pharmacistInsert.jsp,pages/pharmacy/PharmacistDetails.jsp,pages/pharmacy/pharmacistAllUpdate.jsp,pages/pharmacy/AllDrugDetails.jsp">
+                <a class="nav-item js-workspace-link" href="pages/admin/AdminPharmacistPanel.jsp" target="adminWorkspaceFrame" data-title="Pharmacist Portal" data-match="pages/admin/AdminPharmacistPanel.jsp,pages/admin/AdminPharmacistSearch.jsp,pages/admin/AdminPharmacistInsert.jsp,pages/admin/AdminPharmacistAllUpdate.jsp,pages/admin/PharmacistDetails.jsp,pages/admin/AllDrugDetails.jsp,pages/admin/updatePharmacist.jsp,pages/admin/deletepharmacist.jsp">
                     <i class="fa-solid fa-capsules"></i>
                     <span>Pharmacist Portal</span>
                 </a>

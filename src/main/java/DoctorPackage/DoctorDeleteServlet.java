@@ -22,15 +22,13 @@ public class DoctorDeleteServlet extends HttpServlet {
 		isTrue = DoctorDBUtil.deleteDoctor(id_no);
 		
 		if (isTrue == true) {
-			//If delete success, navigate to this page
-			RequestDispatcher dispatcher = request.getRequestDispatcher("pages/doctor/doctorInsert.jsp");
-			dispatcher.forward(request, response);
+			response.sendRedirect("pages/admin/AdminDoctorPanel.jsp");
 		}
 		else {
 			List<Doctor> docdetails = DoctorDBUtil.getDoctorDetails(id_no);
 			request.setAttribute("docCetails", docdetails);
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("pages/doctor/doctorDetails.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("pages/status/unsuccess.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

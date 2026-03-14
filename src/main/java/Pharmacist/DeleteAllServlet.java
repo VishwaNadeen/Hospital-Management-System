@@ -21,8 +21,7 @@ public class DeleteAllServlet extends HttpServlet {
 		isTrue = PharmacistDBUtill.deleteAll(id);
 		 
 		if(isTrue == true ) {
-			jakarta.servlet.RequestDispatcher dispatcher = (jakarta.servlet.RequestDispatcher) request.getRequestDispatcher("PharmacistGetAllServlet.jsp");
-			dispatcher.forward(request, response);
+			response.sendRedirect("PharmacistGetAllServlet");
 		}
 		else {
 			List <Pharmacist>phaDetails = PharmacistDBUtill.getById(id);

@@ -50,6 +50,7 @@ List<Doctor> doctorsAll = DoctorDBUtil.getAllDoctor();
                                     <th>Email</th>
                                     <th>Specialization</th>
                                     <th>Status</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,6 +66,15 @@ List<Doctor> doctorsAll = DoctorDBUtil.getAllDoctor();
                                     <td><%= docs.getEmail() %></td>
                                     <td><%= docs.getSpecialization() %></td>
                                     <td><%= docs.getStatus() %></td>
+                                    <td>
+                                        <a href="pages/admin/AdminDoctorUpdate.jsp?first_name=<%= docs.getFirst_name() %>&last_name=<%= docs.getLast_name() %>&id_no=<%= docs.getId_no() %>&username=<%= docs.getUsername() %>&password=<%= docs.getPassword() %>&dob=<%= docs.getDob() %>&gender=<%= docs.getGender() %>&phone=<%= docs.getPhone() %>&email=<%= docs.getEmail() %>&address=<%= docs.getAddress() %>&specialization=<%= docs.getSpecialization() %>&qualification=<%= docs.getQualification() %>&experience_years=<%= docs.getExperience_years() %>&availability=<%= docs.getAvailability() %>&status=<%= docs.getStatus() %>&created_at=<%= docs.getCreated_at() %>&updated_at=<%= docs.getUpdated_at() %>">
+                                            <button type="button">Update</button>
+                                        </a>
+                                        <form action="AllDoctorsDeleteServlet" method="post" style="display:inline; margin-left:6px;">
+                                            <input type="hidden" name="id_no" value="<%= docs.getId_no() %>">
+                                            <button type="submit">Delete</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             <% } %>
                             </tbody>

@@ -38,20 +38,11 @@ public class DoctorUpdateServlet extends HttpServlet {
 				specialization, qualification, experience_years, availability, status, created_at, updated_at);
 		
 		if(isTrue == true) {
-			
-			List<Doctor> docDetails = DoctorDBUtil.getDoctorDetails(id_no);
-			request.setAttribute("docDetails", docDetails);
-			
-			jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("pages/doctor/doctorDetails.jsp");
-			dis.forward(request, response);
+			response.sendRedirect("pages/admin/AdminDoctorPanel.jsp");
 		}
 		else {
-			
-			List<Doctor> docDetails = DoctorDBUtil.getDoctorDetails(id_no);
-			request.setAttribute("docDetails", docDetails);
-			
-			jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("pages/doctor/doctorDetails.jsp");
-			dis.forward(request, response);
+			request.setAttribute("error", "Doctor update failed");
+			request.getRequestDispatcher("pages/admin/AdminDoctorPanel.jsp").forward(request, response);
 		}
 		
 	}

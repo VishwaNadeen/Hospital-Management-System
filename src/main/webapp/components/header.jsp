@@ -16,7 +16,7 @@
 
     boolean isHome = currentPage.equals("Home.jsp") || currentPage.isEmpty();
     boolean isServices = currentPage.equals("services.jsp");
-    boolean isDoctors = currentPage.equals("DoctorsList.jsp") || currentUri.contains("DoctorsListServlet");
+    boolean isDoctors = currentPage.equals("doctorList.jsp") || currentPage.equals("AllDoctorsDisplay.jsp") || currentUri.contains("DoctorsListServlet") || currentUri.contains("AllDoctorsServlet");
     boolean isAppointment = currentPage.equals("Appointment.jsp") || currentPage.equals("SearchId.jsp") || currentUri.contains("SearchServlet2") || currentUri.contains("GetAllServlet");
     boolean isLogin = currentPage.equals("Login.jsp");
 %>
@@ -92,7 +92,7 @@
                     <a class="nav-link <%= isServices ? "active" : "" %>" href="pages/home/services.jsp">
                         <i class="bi bi-grid me-1"></i>Services
                     </a>
-                    <a class="nav-link <%= isDoctors ? "active" : "" %>" href="DoctorsListServlet">
+                    <a class="nav-link <%= isDoctors ? "active" : "" %>" href="pages/doctor/doctorList.jsp">
                         <i class="bi bi-heart-pulse me-1"></i>Doctors
                     </a>
                     <a class="nav-link <%= isAppointment ? "active" : "" %>" href="pages/patient/Appointment.jsp">

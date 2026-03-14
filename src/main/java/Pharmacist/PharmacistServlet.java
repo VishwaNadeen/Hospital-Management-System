@@ -28,7 +28,7 @@ public class PharmacistServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("pages/pharmacy/PharmacistDetails.jsp");
+		jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("pages/admin/PharmacistDetails.jsp");
 		dis.forward(request,response);
 		
 		
