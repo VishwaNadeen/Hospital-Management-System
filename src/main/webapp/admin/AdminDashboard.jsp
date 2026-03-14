@@ -37,7 +37,7 @@
             </nav>
 
             <div class="sidebar-footer">
-                <a class="logout-btn" href="home/Home.jsp">
+                <a class="logout-btn" href="pages/home/Home.jsp">
                     <i class="fa-solid fa-right-from-bracket"></i>
                     <span>Log Out</span>
                 </a>
