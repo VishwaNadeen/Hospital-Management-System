@@ -6,58 +6,75 @@
     <base href="<%= request.getContextPath() %>/">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor Details</title>
-    <link rel="stylesheet" href="css/AllDoctorsDisplay.css">
+    <title>Doctor Profile</title>
+    <link rel="stylesheet" href="css/doctorDetails.css?v=<%= System.currentTimeMillis() %>">
 </head>
-<body>
+<body class="doctor-profile-page">
 <jsp:include page="/components/header.jsp" />
 
-<div class="search-container">
-    <h2>Doctor Details</h2>
-</div>
+<main class="profile-main">
+    <c:choose>
+        <c:when test="${not empty docDetails}">
+            <c:set var="doc" value="${docDetails[0]}" />
 
-<table border="1" id="doctorTable">
-    <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>ID</th>
-            <th>DOB</th>
-            <th>Gender</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Specialization</th>
-            <th>Qualification</th>
-            <th>Experience</th>
-            <th>Availability</th>
-            <th>Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        <c:forEach var="doc" items="${docDetails}">
-            <tr>
-                <td>${doc.first_name}</td>
-                <td>${doc.last_name}</td>
-                <td>${doc.id_no}</td>
-                <td>${doc.dob}</td>
-                <td>${doc.gender}</td>
-                <td>${doc.phone}</td>
-                <td>${doc.email}</td>
-                <td>${doc.address}</td>
-                <td>${doc.specialization}</td>
-                <td>${doc.qualification}</td>
-                <td>${doc.experience_years}</td>
-                <td>${doc.availability}</td>
-                <td>${doc.status}</td>
-            </tr>
-        </c:forEach>
-    </tbody>
-</table>
+            <section class="profile-shell">
+                <header class="profile-hero">
+                    <div class="hero-main">
+                        <p class="eyebrow">Doctor Profile</p>
+                        <h1>Dr. ${doc.first_name} ${doc.last_name}</h1>
+                        <p class="hero-sub">Specialist details, contact data, and availability.</p>
+                        <div class="hero-tags">
+                            <span class="tag">${doc.specialization}</span>
+                            <span class="tag">${doc.availability}</span>
+                            <span class="tag status ${doc.status == 'active' ? 'status-active' : 'status-inactive'}">${doc.status}</span>
+                        </div>
+                    </div>
+                    <div class="id-chip">
+                        <span>ID</span>
+                        <strong>${doc.id_no}</strong>
+                    </div>
+                </header>
 
-<div class="home-link">
-    <a href="pages/doctor/doctorList.jsp"><- Back to Doctors</a>
-</div>
+                <section class="details-grid">
+                    <article class="detail-card">
+                        <h2>Personal</h2>
+                        <dl>
+                            <div><dt>First Name</dt><dd>${doc.first_name}</dd></div>
+                            <div><dt>Last Name</dt><dd>${doc.last_name}</dd></div>
+                            <div><dt>Date of Birth</dt><dd>${doc.dob}</dd></div>
+                            <div><dt>Gender</dt><dd>${doc.gender}</dd></div>
+                        </dl>
+                    </article>
+
+                    <article class="detail-card">
+                        <h2>Professional</h2>
+                        <dl>
+                            <div><dt>Specialization</dt><dd>${doc.specialization}</dd></div>
+                            <div><dt>Qualification</dt><dd>${doc.qualification}</dd></div>
+                            <div><dt>Experience</dt><dd>${doc.experience_years} years</dd></div>
+                            <div><dt>Availability</dt><dd>${doc.availability}</dd></div>
+                        </dl>
+                    </article>
+
+                    <article class="detail-card full">
+                        <h2>Contact</h2>
+                        <dl>
+                            <div><dt>Phone</dt><dd>${doc.phone}</dd></div>
+                            <div><dt>Email</dt><dd>${doc.email}</dd></div>
+                            <div><dt>Address</dt><dd>${doc.address}</dd></div>
+                        </dl>
+                    </article>
+                </section>
+            </section>
+        </c:when>
+        <c:otherwise>
+            <section class="empty-state">
+                <h2>Doctor not found</h2>
+                <p>The selected doctor record could not be loaded.</p>
+            </section>
+        </c:otherwise>
+    </c:choose>
+</main>
 
 <jsp:include page="/components/footer.jsp" />
 </body>

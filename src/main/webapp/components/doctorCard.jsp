@@ -29,7 +29,9 @@
         <p><span class="label">Age:</span><span class="value"><%= age != null ? age : "N/A" %></span></p>
         <p><span class="label">Gender:</span><span class="value"><%= gender != null ? gender : "N/A" %></span></p>
         <% if (idNo != null && !idNo.trim().isEmpty()) { %>
-            <p><a href="DoctorDetailsServlet?id_no=<%= idNo %>">View Details</a></p>
+            <p class="doctor-actions">
+                <a class="doctor-view-link" href="DoctorDetailsServlet?id_no=<%= idNo %>">View Full Profile</a>
+            </p>
         <% } %>
     </div>
 </div>

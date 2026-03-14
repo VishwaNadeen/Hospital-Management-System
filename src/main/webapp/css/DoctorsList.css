@@ -176,6 +176,33 @@ body.doctors-page .doctor-info p:last-child {
     padding-bottom: 2px;
 }
 
+body.doctors-page .doctor-actions {
+    justify-content: flex-end;
+    border-bottom: 0;
+    margin-top: 6px;
+    padding-bottom: 0;
+}
+
+body.doctors-page .doctor-view-link {
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #0f4f87;
+    background: #e8f2ff;
+    border: 1px solid #cfe4ff;
+    border-radius: 999px;
+    padding: 7px 11px;
+    transition: all 0.2s ease;
+}
+
+body.doctors-page .doctor-view-link:hover {
+    background: #d8ebff;
+    border-color: #9dc7f6;
+    transform: translateY(-1px);
+}
+
 body.doctors-page .label {
     font-size: 0.72rem;
     color: var(--muted);

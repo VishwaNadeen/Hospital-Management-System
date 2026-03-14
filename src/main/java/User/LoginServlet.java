@@ -26,23 +26,9 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         try {
-            // Check credentials
+            // Authenticate only against the user table.
             if (UserDButil.validate(username, password)) {
-                if ("vishwa".equals(username)) {
-                    response.sendRedirect(contextPath + "/pages/admin/AdminDashboard.jsp");
-                }
-                
-                else if ("kalana".equals(username)) {
-                    response.sendRedirect(contextPath + "/pages/admin/AdminPharmacistPanel.jsp");
-                } 
-                
-                else if ("lakshan".equals(username)) {
-                    response.sendRedirect(contextPath + "/pages/home/Home.jsp");
-                }
-                
-                else {
-                    response.sendRedirect(contextPath + "/pages/home/Login.jsp?error=" + URLEncoder.encode("Unauthorized user", StandardCharsets.UTF_8));
-                }
+                request.getRequestDispatcher("/pages/admin/AdminDashboard.jsp").forward(request, response);
             } else {
                 response.sendRedirect(contextPath + "/pages/home/Login.jsp?error=" + URLEncoder.encode("Invalid username or password", StandardCharsets.UTF_8));
             }

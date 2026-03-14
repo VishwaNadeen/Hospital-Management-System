@@ -1,4 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    response.setHeader("Pragma", "no-cache");
+    response.setDateHeader("Expires", 0);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,17 +29,17 @@
                 <div class="login-alert" role="alert"><%= error %></div>
             <% } %>
 
-            <form method="post" action="LoginServlet" class="login-form" autocomplete="on">
+            <form id="loginForm" method="post" action="LoginServlet" class="login-form" autocomplete="off">
                 <label for="username">Username</label>
                 <div class="input-wrap">
                     <i class="bi bi-person"></i>
-                    <input id="username" type="text" name="username" required autofocus>
+                    <input id="username" type="text" name="username" required autofocus autocomplete="off" value="">
                 </div>
 
                 <label for="password">Password</label>
                 <div class="input-wrap">
                     <i class="bi bi-key"></i>
-                    <input id="password" type="password" name="password" required>
+                    <input id="password" type="password" name="password" required autocomplete="new-password" value="">
                 </div>
 
                 <button type="submit" class="btn-login">
@@ -46,5 +51,22 @@
     </section>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('loginForm');
+    const username = document.getElementById('username');
+    const password = document.getElementById('password');
+
+    if (form) {
+        form.reset();
+    }
+    if (username) {
+        username.value = '';
+    }
+    if (password) {
+        password.value = '';
+    }
+});
+</script>
 </body>
 </html>
