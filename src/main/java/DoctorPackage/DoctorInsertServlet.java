@@ -19,6 +19,8 @@ public class DoctorInsertServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String source = request.getParameter("source");
+        boolean isAdminEmbed = "adminEmbed".equals(source);
 
         String fname = request.getParameter("fname");
         String lname = request.getParameter("lname");
@@ -39,12 +41,12 @@ public class DoctorInsertServlet extends HttpServlet {
         // Validate phone number (must be exactly 10 digits)
         if (number == null || number.length() != 10 || !number.matches("\\d{10}")) {
             // If the number is either null or has invalid length or non-digit characters
-            if (number.length() > 10) {
+            if (number != null && number.length() > 10) {
                 request.setAttribute("errorMessage", "Phone number cannot be more than 10 digits.");
             } else {
                 request.setAttribute("errorMessage", "Phone number must be exactly 10 digits.");
             }
-            request.getRequestDispatcher("doctorInsert.jsp").forward(request, response);
+            request.getRequestDispatcher(isAdminEmbed ? "AdminDoctorAdd.jsp" : "doctorInsert.jsp").forward(request, response);
             return;
         }
 
@@ -57,7 +59,7 @@ public class DoctorInsertServlet extends HttpServlet {
             dateOfBirth = dateFormat.parse(dob);
         } catch (ParseException e) {
             request.setAttribute("errorMessage", "Invalid date format for Date of Birth. Use yyyy-MM-dd.");
-            request.getRequestDispatcher("doctorInsert.jsp").forward(request, response);
+            request.getRequestDispatcher(isAdminEmbed ? "AdminDoctorAdd.jsp" : "doctorInsert.jsp").forward(request, response);
             return;
         }
 
@@ -75,10 +77,14 @@ public class DoctorInsertServlet extends HttpServlet {
         boolean isTrue = DoctorDBUtil.insertDoctor(fname, lname, id, uname, pass, dob, gender, number, email, address, spe, qua, exp, availability, status, create, update);
 
         if (isTrue) {
-            jakarta.servlet.RequestDispatcher dis = request.getRequestDispatcher("AdminPortral.jsp");
-            dis.forward(request, response);
+            if (isAdminEmbed) {
+                response.sendRedirect("AdminDoctorPanel.jsp");
+            } else {
+                response.sendRedirect("AdminDashboard.jsp");
+            }
         } else {
-            jakarta.servlet.RequestDispatcher dis2 = request.getRequestDispatcher("doctorInsert.jsp");
+            request.setAttribute("errorMessage", "Unable to add doctor. Please check the details and try again.");
+            jakarta.servlet.RequestDispatcher dis2 = request.getRequestDispatcher(isAdminEmbed ? "AdminDoctorAdd.jsp" : "doctorInsert.jsp");
             dis2.forward(request, response);
         }
     }

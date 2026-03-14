@@ -76,7 +76,7 @@
     </table>
     
     <div class="home-link">
-        <a href="AdminPortral.jsp"><- Back to Potral</a>
+        <a href="AdminDashboard.jsp"><- Back to Dashboard</a>
     </div>
     
     <script>

@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap');
+
+body.admin-doctor-add-page *,
+body.admin-doctor-add-page *::before,
+body.admin-doctor-add-page *::after {
+    box-sizing: border-box;
+}
+
+html,
+body.admin-doctor-add-page {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body.admin-doctor-add-page {
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+    color: #173955;
+    background: transparent;
+    padding: 0;
+}
+
+body.admin-doctor-add-page .add-wrap {
+    width: 100%;
+    padding: 0;
+}
+
+body.admin-doctor-add-page .add-card {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+}
+
+body.admin-doctor-add-page .add-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 2px 0 10px;
+    border-bottom: 1px solid #dce8f4;
+}
+
+body.admin-doctor-add-page .add-head h2 {
+    margin: 0;
+    font-size: 1.55rem;
+    line-height: 1.15;
+}
+
+body.admin-doctor-add-page .add-head p {
+    margin: 5px 0 0;
+    color: #5d7c99;
+    font-weight: 600;
+    font-size: 0.94rem;
+}
+
+body.admin-doctor-add-page .back-link {
+    text-decoration: none;
+    color: #1f4d76;
+    border: 1px solid #c8dced;
+    border-radius: 9px;
+    padding: 8px 13px;
+    font-size: 0.86rem;
+    font-weight: 800;
+    background: #fff;
+    white-space: nowrap;
+}
+
+body.admin-doctor-add-page .add-error {
+    margin-bottom: 12px;
+    border: 1px solid #f0caca;
+    border-radius: 10px;
+    padding: 11px 13px;
+    background: #ffecec;
+    color: #8b2b2b;
+    font-weight: 700;
+    font-size: 0.88rem;
+}
+
+body.admin-doctor-add-page .add-form {
+    display: grid;
+    gap: 8px;
+    padding-top: 2px;
+}
+
+body.admin-doctor-add-page .row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 0;
+}
+
+body.admin-doctor-add-page .field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+body.admin-doctor-add-page .field label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #2b5579;
+}
+
+body.admin-doctor-add-page .field input,
+body.admin-doctor-add-page .field select {
+    width: 100%;
+    min-height: 40px;
+    border: 1px solid #cadcec;
+    border-radius: 9px;
+    padding: 0 11px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #173955;
+    background: #fff;
+}
+
+body.admin-doctor-add-page .field input:focus,
+body.admin-doctor-add-page .field select:focus {
+    outline: none;
+    border-color: #4ea3ea;
+    box-shadow: 0 0 0 4px rgba(78, 163, 234, 0.16);
+}
+
+body.admin-doctor-add-page .submit-btn {
+    width: 100%;
+    min-height: 42px;
+    border: 0;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 0.93rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    background: linear-gradient(135deg, #0f8e9f, #2d74d4);
+    cursor: pointer;
+    margin-top: 2px;
+}
+
+@media (max-width: 700px) {
+    body.admin-doctor-add-page .add-head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    body.admin-doctor-add-page .row-2 {
+        grid-template-columns: 1fr;
+    }
+}

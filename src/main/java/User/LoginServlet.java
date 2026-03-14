@@ -28,7 +28,7 @@ public class LoginServlet extends HttpServlet {
             // Check credentials
             if (UserDButil.validate(username, password)) {
                 if ("vishwa".equals(username)) {
-                    response.sendRedirect("AdminPortral.jsp");
+                    response.sendRedirect("AdminDashboard.jsp");
                 }
                 
                 else if ("kalana".equals(username)) {

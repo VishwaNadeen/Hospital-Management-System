@@ -4,8 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class DoctorDBUtil {
     private static final String URL = "jdbc:mysql://localhost:3306/hospital?useSSL=false&serverTimezone=UTC";
@@ -33,18 +37,25 @@ public class DoctorDBUtil {
              PreparedStatement ps = con.prepareStatement(query);
              ResultSet rs = ps.executeQuery()) {
 
+            // Handle minor schema differences across environments (e.g., id vs id_no).
+            Set<String> availableColumns = new HashSet<>();
+            ResultSetMetaData metaData = rs.getMetaData();
+            for (int i = 1; i <= metaData.getColumnCount(); i++) {
+                availableColumns.add(metaData.getColumnLabel(i).toLowerCase());
+            }
+
             while (rs.next()) {
                 Doctor doctor = new Doctor();
-                doctor.setId(rs.getString("id"));
-                doctor.setFirstName(rs.getString("first_name"));
-                doctor.setLastName(rs.getString("last_name"));
-                doctor.setDob(rs.getString("dob"));
-                doctor.setGender(rs.getString("gender"));
-                doctor.setSpecialization(rs.getString("specialization"));
-                doctor.setQualification(rs.getString("qualification"));
-                doctor.setExperienceYears(rs.getString("experience_years"));
-                doctor.setAvailability(rs.getString("availability"));
-                doctor.setStatus(rs.getString("status"));
+                doctor.setId(getColumnValue(rs, availableColumns, "id", "id_no"));
+                doctor.setFirstName(getColumnValue(rs, availableColumns, "first_name"));
+                doctor.setLastName(getColumnValue(rs, availableColumns, "last_name"));
+                doctor.setDob(getColumnValue(rs, availableColumns, "dob"));
+                doctor.setGender(getColumnValue(rs, availableColumns, "gender"));
+                doctor.setSpecialization(getColumnValue(rs, availableColumns, "specialization"));
+                doctor.setQualification(getColumnValue(rs, availableColumns, "qualification"));
+                doctor.setExperienceYears(getColumnValue(rs, availableColumns, "experience_years"));
+                doctor.setAvailability(getColumnValue(rs, availableColumns, "availability"));
+                doctor.setStatus(getColumnValue(rs, availableColumns, "status"));
 
                 doctorsList.add(doctor);
             }
@@ -53,5 +64,15 @@ public class DoctorDBUtil {
         }
 
         return doctorsList;
+    }
+
+    private static String getColumnValue(ResultSet rs, Set<String> availableColumns, String... candidates)
+            throws SQLException {
+        for (String candidate : candidates) {
+            if (availableColumns.contains(candidate.toLowerCase())) {
+                return rs.getString(candidate);
+            }
+        }
+        return null;
     }
 }

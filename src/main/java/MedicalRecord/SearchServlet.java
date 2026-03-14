@@ -15,12 +15,14 @@ public class SearchServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String nicID = request.getParameter("nicID");
+        String source = request.getParameter("source");
+        boolean isAdminEmbed = "adminEmbed".equals(source);
         
         try {
             List<Records> recDetails = RecordDButil.validate(nicID);
             
             if(recDetails == null || recDetails.isEmpty()) {
-                response.sendRedirect("SearchRecord.jsp?error=No+record+found+for+the+given+ID");
+                response.sendRedirect((isAdminEmbed ? "AdminMedicalRecordPanel.jsp" : "SearchRecord.jsp") + "?error=No+record+found+for+the+given+ID");
                 return;
             }
             
@@ -30,7 +32,7 @@ public class SearchServlet extends HttpServlet {
             
         } catch(Exception e) {
             e.printStackTrace();
-            response.sendRedirect("SearchRecord.jsp?error=An+error+occurred+while+searching");
+            response.sendRedirect((isAdminEmbed ? "AdminMedicalRecordPanel.jsp" : "SearchRecord.jsp") + "?error=An+error+occurred+while+searching");
         }
     }
 }

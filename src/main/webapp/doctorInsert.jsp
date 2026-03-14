@@ -130,7 +130,7 @@
             </div>
             
             <div class="home-link">
-            	<a href="AdminPortral.jsp">← Back to Portral</a>
+            	<a href="AdminDashboard.jsp">← Back to Dashboard</a>
         	</div>
         </form> 
     </div>
